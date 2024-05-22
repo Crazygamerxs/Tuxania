@@ -1,0 +1,152 @@
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+    /**
+     * colors
+     */
+  
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(0, 100%, 51%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+  
+    /**
+     * typography
+     */
+  
+    --fs-1: 1.563rem;
+    --fs-2: 1.375rem;
+    --fs-3: 1.25rem;
+    --fs-4: 1.125rem;
+    --fs-5: 1rem;
+    --fs-6: 0.938rem;
+    --fs-7: 0.875rem;
+    --fs-8: 0.813rem;
+    --fs-9: 0.75rem;
+    --fs-10: 0.688rem;
+    --fs-11: 0.625rem;
+  
+    --weight-300: 300;
+    --weight-400: 400;
+    --weight-500: 500;
+    --weight-600: 600;
+    --weight-700: 700;
+  
+    /**
+     * border-radius
+     */
+  
+    --border-radius-md: 10px;
+    --border-radius-sm: 5px;
+  
+    /**
+     * transition 
+     */
+  
+    --transition-timing: 0.2s ease;
+  
+  }
+
+
+/*
+
+    Forms  */
+
+   /* Base button style */
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+
+}
+.forms h1 {
+    font-size: 1.5em;
+    color: var(--eerie-black);
+    margin-top: -2.2em;
+    position: relative; /* Ensure the pseudo-element is positioned relative to the h1 */
+    margin-left: -4em;
+    margin-top: -2em;
+}
+
+.forms h1::after {
+    content: "";
+    display: block;
+    width: 620%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: rgb(0, 0, 0); /* Set the line color */
+    /* margin-top: -1em; Adjust the space between the text and the line */
+    position: absolute;
+    bottom: -0.1em; /* Adjust based on your needs to position the line properly */
+    left: 0;
+}
+
+
+.responsive-button {
+    padding: 1em 2em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* font-size: var(--fs-11);*/
+    font-weight: var(--weight-600); 
+    text-transform: uppercase;
+    margin-top: 1em;
+
+
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 200px; /* Set a fixed width for the buttons */
+
+}
+
+.responsive-button:hover {
+    background-color: #000000;
+    color: white;
+}
+
+
+
+/* Adjust button size based on screen width */
+@media (max-width: 1200px) {
+    .responsive-button {
+        padding: 0.9em 1.8em;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .responsive-button {
+        padding: 0.8em 1.6em;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-button {
+        padding: 0.7em 1.4em;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .responsive-button {
+        padding: 0.6em 1.2em;
+        font-size: 0.6rem;
+    }
+}
