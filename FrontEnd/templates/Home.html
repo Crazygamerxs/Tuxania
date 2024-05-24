@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/mystyles.css">
 
+    <link rel="icon" type="image/png" href="../Images/T.png">
+
     
    <!--
     - google font link
@@ -623,7 +625,7 @@
                       <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
                         height="20"> -->
   
-                      <p class="menu-title">Predictive Maintenance</p>
+                      <p class="menu-title">Predictive Maintain</p>
                     </div>
 
                   <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -699,22 +701,40 @@
           -->
           <div class="forms">
             <div class="column">
-                <h1 class="name">Forms</h1>
+                <h1 class="name" >Forms</h1>
             </div>
-            <button class="responsive-button">Leave of Absence</button>
-            <button class="responsive-button-dark">SafetyBoot Reimburse</button>
-            <button class="responsive-button">Course Reimburse</button>
+            <button class="responsive-button">
+              <img src="../Images/forms/absence.png" alt="Icon" class="button-icon">
+              <span>Leave of Absence</span>
+          </button>
+            <button class="responsive-button-dark">
+              <img src="../Images/forms/boot.png" alt="Icon" class="button-icon">
+              Boot Reimburse</button>
+            <button class="responsive-button">
+              <img src="../Images/forms/course.png" alt="Icon" class="button-icon">
+              Course Reimburse</button>
         </div>
         
         <div class="forms">
-            <button class="responsive-button">Request Shipping</button>
-            <button class="responsive-button">Mileage Report</button>
-            <button class="responsive-button">Phone Directory</button>
+            <button class="responsive-button">
+              <img src="../Images/forms/shipping.png" alt="Icon" class="button-icon">
+              Request Shipping</button>
+            <button class="responsive-button">
+              <img src="../Images/forms/report.png" alt="Icon" class="button-icon">
+              Mileage Report</button>
+            <button class="responsive-button">
+              <img src="../Images/forms/phonebook.png" alt="Icon" class="button-icon">
+              Phone Directory</button>
         </div>
         
         <div class="forms">
-            <button class="responsive-button-dark">Operating Policy</button>
-            <button class="responsive-button">HR Forms</button>
+            <button class="responsive-button-dark">
+              <img src="../Images/forms/policy.png" alt="Icon" class="button-icon">
+              Operating Policy</button>
+
+            <button class="responsive-button">
+              <img src="../Images/forms/Hr.png" alt="Icon" class="button-icon">
+              HR Forms</button>
         </div>
         
 
@@ -724,7 +744,8 @@
 
 
         <div class="events-sidebar" style="margin-left: 2em;">
-          <div class="event">
+          <h1 class="name" style="font-size: x-large;">Events</h1>
+          <div class="event" style="margin-top: 10px;">
               <div class="event-date">
                   <div class="date-day">25</div>
                   <div class="date-month">May 2024</div>
@@ -772,7 +793,7 @@
 <section id="job" class="job">
   <div class="container">
       <div class="section-header">
-          <h2>Job Postings</h2>
+          <h2 style="margin-top: 70px;">Job Postings</h2>
       </div><!--/.section-header-->
       <div class="job-content">
           <div class="row">
@@ -821,11 +842,36 @@
 
    
 
-    <!-- Footer section -->
-    
+    <!-- Footer Section -->
     <footer>
+      <div class="footer-container">
+          <div class="footer-left">
+              <!-- <h1>HDT Automotive</h1> -->
+              <div class="contact-info">
+                <img src="../Images/hdt-logo.png" alt="Hdt Logo" width="auto" height="150" class="footer-img">
 
-    </footer>
+                  <p><strong>Contact us</strong></p>
+                  <p><strong>Address</strong><br>575 Waydom Dr</p>
+                  <p><strong>E-mail</strong><br><a href="mailto:Example@gmail.com">Example@gmail.com</a></p>
+                  <p><strong>Phone</strong><br>+1 (519) 623-2002</p>
+              </div>
+              <div class="follow-us">
+                  <p><strong>Follow us</strong></p>
+                  <a href="#"><img src="../Images/socials/linkedin.png" alt="LinkedIn"></a>
+                  <a href="#"><img src="../Images/socials/facebook.png" alt="Facebook"></a>
+                  <a href="#"><img src="../Images/socials/instagram.png" alt="Instagram"></a>
+              </div>
+          </div>
+          <div class="footer-right">
+              <form action="#" method="POST">
+                  <input type="text" name="name" placeholder="Name">
+                  <input type="email" name="email" placeholder="E-Mail">
+                  <textarea name="message" placeholder="How can we help?"></textarea>
+                  <button type="submit">Send Message</button>
+              </form>
+          </div>
+      </div>
+  </footer>
 </body>
 <script src="../javascript/script.js"></script>
 <!--

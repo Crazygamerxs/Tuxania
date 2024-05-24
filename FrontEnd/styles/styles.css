@@ -1568,13 +1568,13 @@
   
   
   
-  
+/*   
   
   /*-----------------------------------*\
     #FOOTER
   \*-----------------------------------*/
   
-  footer {
+  /* footer {
     background: var(--eerie-black);
     padding: 30px 0;
   }
@@ -1629,13 +1629,13 @@
     width: 1px;
     height: 15px;
   }
-  
+   */
   
   /**
    * footer nav 
    */
   
-  .footer-nav {
+  /* .footer-nav {
     border-bottom: 1px solid var(--onyx);
     padding-bottom: 30px;
     margin-bottom: 30px;
@@ -1725,7 +1725,7 @@
   .copyright a {
     display: inline;
     color: inherit;
-  }
+  } */ 
   
   
   

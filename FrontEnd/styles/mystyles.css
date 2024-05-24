@@ -57,22 +57,15 @@
   
   }
 
-
-/*
-
-    Forms  */
-
-   /* Base button style */
-
-   .forms-section {
+/* Base button style */
+.forms-section {
     width: 300px;
     background-color: #f8f8f8;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-.forms{
+.forms {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,107 +73,55 @@
     margin-top: 2em;
     margin-left: 1.2em;
 }
+
 .forms h1 {
     font-size: 1.5em;
     color: var(--eerie-black);
-    /* position: relative; Ensure the pseudo-element is positioned relative to the h1 */
     margin-left: -3.7em;
     margin-top: -1.6em;
-
     text-transform: initial;
     line-height: 1.2;
 }
 
-/* .forms h1::after {
-    content: "";
-    display: block;
-    width: 620%;
-    height: 2px; /* Adjust the height as needed */
-    /* background-color: rgb(153, 149, 149); Set the line color */ 
-    /* margin-top: -1em; Adjust the space between the text and the line */
-    /* position: absolute;
-    bottom: -0.1em; Adjust based on your needs to position the line properly */
-    /* left: 0;
-} */
-
-
-.responsive-button {
-    padding: 1em 2em;
-    /* font-size: 1em; */
-    /* border: 3px solid #000000; Red border outline */
+.responsive-button, .responsive-button-dark {
+    padding: 0.5em 1em;
     border-radius: 5px;
-    background-color: #54b0d8; /* Black background */
-    color: #ffffff; /* White text color */
+    background-color: #ffffffdc; /* Blue background */
+    color: #000000; /* White text color */
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: var(--fs-7);
-
     font-weight: var(--weight-600); 
     text-transform: uppercase;
     margin-top: 1em;
-    width: 200px; /* Set a fixed width for the buttons */
-    display: inline-block; /* Ensure buttons are inline-block */
+    width: 220px; /* Set a fixed width for the buttons */
+    height: 100px;
+    display: flex; /* Use flex for better control */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
     text-align: center; /* Center the text */
-}
-
-
-.responsive-button-reddish {
-    padding: 1em 2em;
-    /* font-size: 1em; */
-    border: none;
-    border-radius: 5px;
-    background-color: #54b0d8;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: var(--fs-11);
-    font-weight: var(--weight-600); 
-    text-transform: uppercase;
-    margin-top: 1em;
-
-
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    width: 200px; /* Set a fixed width for the buttons */
+    /* border: 2px solid #ff0000; Red border */
 
 }
 
 .responsive-button-dark {
-    padding: 1em 2em;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #167aa5;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: var(--fs-7);
-    font-weight: var(--weight-600); 
-    text-transform: uppercase;
-    margin-top: 1em;
-
-
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    width: 200px; /* Set a fixed width for the buttons */
-
+    background-color: #ffffffde; /* Dark background */
+    border: none; /* Remove default button border */
 }
 
-
-.responsive-button:hover {
-    background-color: #000000;
-    color: white;
+.button-icon {
+    width: 55px; /* Set icon width */
+    height: 55px; /* Set icon height */
+    margin-bottom: 10px; /* Add space between the icon and text */
 }
 
-.responsive-button-reddish:hover {
-    background-color: #000000;
-    color: white;
-}
-.responsive-button-dark:hover {
-    background-color: #000000;
-    color: white;
-}
+.responsive-button:hover, .responsive-button-dark:hover {
+    background-color: #000000; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    box-shadow:  10px 10px rgba(0, 0, 0, 0.4);
 
+}
 
 /*-----------------------------------*\
   #EVENTS SECTION
@@ -206,7 +147,7 @@
 }
 
 .event-date {
-    background-color: #e60000;
+    background-color: #f02222;
     color: white;
     text-align: center;
     padding: 10px;
@@ -238,7 +179,7 @@
 }
 
 .add-event-button {
-    background-color: #e60000;
+    background-color: #ee2d2d;
     color: white;
     border: none;
     border-radius: 50%;
@@ -271,6 +212,8 @@
     background-color: #000000;
     color: white;
 }
+
+
 /*-------------------------------------
         10. JOB SECTION
 --------------------------------------*/
@@ -358,7 +301,107 @@
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: fill;
+    margin: 0 auto;
+    background-color: #000000;
+    max-height: auto;
+}
 
+.footer-left {
+    flex: 1;
+}
+
+.footer-img{
+    margin-left: 70px;
+    /* margin-top: 80px; */
+
+}
+
+.footer-left h1 {
+    margin-bottom: 20px;
+    margin-left: 90px;
+    margin-top: 80px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    margin-left: 90px;
+    color: #fff;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.follow-us p {
+    margin: 15px 0 5px;
+    margin-left: 90px;
+    color: #fff;
+}
+
+.follow-us a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0px;
+    margin-left: 90px;
+    float: left;
+}
+
+.footer-right {
+    flex: 1;
+    margin-left: 200px;
+    margin-bottom: 50px;
+}
+
+.footer-right form {
+    display: fixed;
+    flex-direction: column;
+    margin-top: 60px;
+    background-color: #cac9c9;
+    width: 60%;
+    padding: 20px;
+
+    border-top-left-radius: 6px; /* Rounded top-left corner */
+    border-top-right-radius: 6px; /* Rounded top-right corner */
+    border-bottom-left-radius: 6px; /* Rounded top-left corner */
+    border-bottom-right-radius: 6px; /* Rounded top-right corner */    
+}
+
+.footer-right input
+{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.footer-right textarea{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    height: 200px;
+}
+
+.footer-right button {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.footer-right button:hover {
+    background-color: #ec1313;
+}
 
 /*-----------------------------------*\
   #RESPONSIVE
