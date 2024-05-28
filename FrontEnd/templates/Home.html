@@ -661,7 +661,7 @@
                     <ion-icon name="close-outline"></ion-icon>
                   </button>
                 </div>
-                <ul class="sidebar-menu-category-list">
+                <ul id="favorite-links-list" class="sidebar-menu-category-list">
   
   
                   <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -691,11 +691,32 @@
               </li>
             </ul>      
             <div class="add-event">
-              <button class="add-event-button-blue">+</button>
+              <button class="add-event-button-blue" onclick="openModal()">+</button>
           </div>     
         </div>
     </div>
 </div>
+
+
+<!-- Modal for adding new favorite link -->
+<div id="addLinkModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Add a New Favorite Link</h2>
+      <div class="form-group" style="margin-left: -70%;">
+          <label for="newLinkName">Name:</label>
+          <input type="text" id="newLinkName" placeholder="Enter the name">
+      </div>
+      <div class="form-group">
+          <label for="newLinkURL">Link:</label>
+          <input type="text" id="newLinkURL" placeholder="Enter the link">
+      </div>
+      <button class="close-popup-button" onclick="closeModal()">Close</button>
+      <button class="add-link-button" onclick="addFavoriteLink()">Add Link</button>
+  </div>
+</div>
+
+
           <!--
             - FORMS LIST
           -->
@@ -794,21 +815,21 @@
       -->
 
 <!--job start -->
-<section id="job" class="job">
+<!-- <section id="job" class="job">
   <div class="container">
       <div class="section-header">
           <h2 style="margin-top: 70px;">Job Postings</h2>
-      </div><!--/.section-header-->
-      <div class="job-content">
+      </div>/.section-header -->
+      <!-- <div class="job-content">
           <div class="row">
-              <div class="single-job-item" style="margin-right: 20px;">
+              <div class="single-job-item" >
                   <div class="single-job-item-img">
                       <img src="../Images/job/b1.jpg" alt="job image">
                   </div>
                   <div class="single-job-item-txt">
                       <h2><a href="#">How to find your Lost Minecraft World</a></h2>
-                      <!-- <h4>posted <span>by</span> <a href="#">admin</a> March 2018</h4> -->
-                      <p>
+                      <h4>posted <span>by</span> <a href="#">admin</a> March 2018</h4> -->
+                      <!-- <p>
                           Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore incididunt ut labore et dolore magna.
                       </p>
                   </div>
@@ -819,12 +840,12 @@
                   </div>
                   <div class="single-job-item-txt">
                       <h2><a href="#">How to find your Lost Minecraft World</a></h2>
-                      <!-- <h4>posted <span>by</span> <a href="#">admin</a> March 2018</h4> -->
-                      <p>
+                      <h4>posted <span>by</span> <a href="#">admin</a> March 2018</h4> -->
+                      <!-- <p>
                           Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore incididunt ut labore et dolore magna.
                       </p>
                   </div>
-              </div>
+              </div> -->
               <!-- <div class="single-job-item">
                   <div class="single-job-item-img">
                       <img src="../Images/job/b3.jpg" alt="job image">
@@ -878,6 +899,77 @@
   </footer>
 </body>
 <script src="../javascript/script.js"></script>
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+            loadFavoriteLinks();
+        });
+
+        function openModal() {
+            document.getElementById('addLinkModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('addLinkModal').style.display = 'none';
+        }
+
+        function addFavoriteLink() {
+            const linkName = document.getElementById('newLinkName').value;
+            const linkURL = document.getElementById('newLinkURL').value;
+            if (linkName && linkURL) {
+                let links = JSON.parse(localStorage.getItem('favoriteLinks')) || [];
+                links.push({ name: linkName, url: linkURL });
+                localStorage.setItem('favoriteLinks', JSON.stringify(links));
+                renderFavoriteLinks();
+                closeModal();
+            }
+        }
+
+        function loadFavoriteLinks() {
+            const links = JSON.parse(localStorage.getItem('favoriteLinks')) || [];
+            const list = document.getElementById('favorite-links-list');
+            list.innerHTML = '';
+            links.forEach((link, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'sidebar-accordion-menu';
+                listItem.innerHTML = `
+                    <div class="menu-title-flex">
+                        <a href="${link.url}" target="_blank" class="menu-title">${link.name}</a>
+                        <button onclick="removeLink(${index})">Remove</button>
+                    </div>
+                `;
+                list.appendChild(listItem);
+            });
+        }
+
+        function removeLink(index) {
+            let links = JSON.parse(localStorage.getItem('favoriteLinks')) || [];
+            links.splice(index, 1);
+            localStorage.setItem('favoriteLinks', JSON.stringify(links));
+            renderFavoriteLinks();
+        }
+
+        function renderFavoriteLinks() {
+            const list = document.getElementById('favorite-links-list');
+            list.innerHTML = '';
+            const links = JSON.parse(localStorage.getItem('favoriteLinks')) || [];
+            links.forEach((link, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'sidebar-accordion-menu';
+                listItem.innerHTML = `
+                    <div class="menu-title-flex">
+                        <a href="${link.url}" target="_blank" class="menu-title">${link.name}</a>
+                        <button onclick="removeLink(${index})">Remove</button>
+                    </div>
+                `;
+                list.appendChild(listItem);
+            });
+        }
+</script> -->
+
+
+<script src="../javascript/favorites.js"></script>
+
+
 <!--
     - ionicon link
   -->
