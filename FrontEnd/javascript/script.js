@@ -86,3 +86,7 @@ for (let i = 0; i < accordionBtn.length; i++) {
   });
 
 }
+
+function redirectToJobPostingPage() {
+  window.location.href = 'jobposting.html';
+}

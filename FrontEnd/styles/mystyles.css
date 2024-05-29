@@ -165,7 +165,7 @@
 }
 
 .add-event-button {
-    background-color: #ee2d2d;
+    background-color: #ee2d47;
     color: white;
     border: none;
     border-radius: 50%;
@@ -178,7 +178,7 @@
 }
 
 .add-event-button-blue {
-    background-color: #ee2d2d;
+    background-color: #ee2d47;
     color: white;
     border: none;
     border-radius: 70%;
@@ -198,6 +198,45 @@
     background-color: #000000;
     color: white;
 }
+
+/* Event Modal Styles */
+.event-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.event-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.event-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.event-modal-close:hover,
+.event-modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 
 /*-------------------------------------*\
     #JOB SECTION
@@ -278,6 +317,23 @@
 
 .single-job-item:hover {
     box-shadow: 0 10px 20px rgba(21, 19, 19, .4);
+}
+
+.add-job-button{
+    background-color: #ee2d47;
+    color: white;
+    border: none;
+    border-radius: 70%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 6em;
+}
+
+.add-job-button:hover {
+    background-color: #000000;
+    color: white;
 }
 
 /*-----------------------------------*\

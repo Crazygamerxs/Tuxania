@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job Posting</title>
+    <!--link to the css style sheet-->
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/mystyles.css">
+
+   <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <style>
+        h2 {
+            text-align: center;
+            color: #333;
+        } 
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ee2d47;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d1273d;
+        }
+    </style>
+</head>
+<body>
+    
+  <!--- HEADER -->
+
+  <header>
+
+    <!-- <div class="header-top"> -->
+
+
+        <!-- Social Links -->
+
+
+      <!-- <div class="container">
+
+        <ul class="header-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul> -->
+
+        <!-- <div class="header-alert-news">
+          <p>
+            <b>Free Shipping</b>
+            This Week Order Over - $55
+          </p>
+        </div> -->
+
+        <!-- <div class="header-top-actions">
+
+          <select name="currency">
+
+            <option value="usd">USD &dollar;</option>
+            <option value="eur">EUR &euro;</option>
+
+          </select>
+
+          <select name="language">
+
+            <option value="en-US">English</option>
+            <option value="es-ES">Espa&ntilde;ol</option>
+            <option value="fr">Fran&ccedil;ais</option>
+
+          </select>
+
+        </div> -->
+
+      <!-- </div> -->
+
+    <!-- </div> -->
+
+    <div class="header-main">
+
+      <div class="container">
+        <!--Logo Goes here-->
+
+
+        <a href="../templates/Home.html" class="header-logo">
+          <img src="../Images/hdt-logo.png" alt="Hdt Logo" width="auto" height="150" >
+        </a>
+
+        <!-- <div class="header-search-container">
+
+          <input type="search" name="search" class="search-field" placeholder="Search Bar...">
+
+          <button class="search-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+        </div> -->
+
+        
+
+      </div>
+
+    </div>
+
+    
+  </header>
+
+<div class="container">
+    <h2>Add a Job Posting</h2>
+    <form action="#" method="post">
+        <label for="position">Position</label>
+        <input type="text" id="position" name="position" required>
+
+        <label for="reportsTo">Reports To</label>
+        <input type="text" id="reportsTo" name="reportsTo" required>
+
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="workHours">Work Hours</label>
+        <input type="text" id="workHours" name="workHours" required>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="responsibilities">Primary Responsibilities</label>
+        <textarea id="responsibilities" name="responsibilities" required></textarea>
+
+        <label for="qualifications">Qualifications (Education & Skills Required)</label>
+        <textarea id="qualifications" name="qualifications" required></textarea>
+
+        <label for="additionalInfo">Additional Information</label>
+        <textarea id="additionalInfo" name="additionalInfo"></textarea>
+
+        <button type="submit">Add Job</button>
+    </form>
+</div>
+
+</body>
+</html>
