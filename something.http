@@ -1,1 +1,8 @@
-GET http://172.16.200.98:8088/system/webdev/Tuxania/data
+POST http://172.16.200.98:8088/system/webdev/Tuxania/Python_Scripts/save_event
+Content-Type: application/json
+
+{
+    "Event Day": "25",
+    "Event Month": "May 2024",
+    "Event Description": "Car Supply Change!"
+}
