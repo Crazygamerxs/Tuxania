@@ -1,24 +1,23 @@
 def doPost(request, session):
-	# Import the required modules
-	import system
-	try:
-	    # Extract data from the request
-	    data = request.json
-	    
-	    # Extract the necessary fields from the JSON data
-	    event_date = data.get('event_date')
-	    event_month = data.get('event_month')
-	    event_description = data.get('event_description')
-	    
-	    # Insert the data into the database
-	    system.db.runPrepUpdate("""
-	        INSERT INTO Events (Event_Date, Event_Month, Event_Description)
-	        VALUES (?, ?, ?)
-	    """, [event_date, event_month, event_description], "Tuxania")
-	    
-	    # Return a success response
-	    return {'success': True, 'message': 'Data inserted successfully'}
+	# Push the error text to the logger
+	logger = system.util.getLogger('request')
 	
-	except Exception as e:
-	    # Return an error response
-	    return {'success': False, 'error': str(e)}
+	# Log the content of the request dictionary
+	logger.info("Request content: %s" % request)
+	
+	# Extract form data from the request dictionary's 'params' key
+	params = request.get('params', {})
+	
+	# Extract values from params
+	day = params.get('day')
+	month = params.get('month')
+	description = params.get('description')
+	
+	# Log the retrieved data
+	logger.info("Event Day: %s" % day)
+	logger.info("Event Month: %s" % month)
+	logger.info("Event Description: %s" % description)
+	
+	# Insert data into the database
+	db_params = {'Day': day, 'Month': month, 'Description': description}
+	system.db.runNamedQuery('save_event', db_params)
