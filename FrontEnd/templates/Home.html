@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/mystyles.css">
 
-    <link rel="icon" type="image/png" href="../Images/hdt.png">
+    <link rel="icon" type="image/png" href="../Images/Tsvg.png">
 
     
    <!--
@@ -761,10 +761,9 @@
 
 
 <!-- Modal for adding new favorite link -->
-<div id="addLinkModal" class="modal">
+<div id="addLinkModal" class="modal" style="display:none;">
   <div class="modal-content">
-      <!-- <span class="close" onclick="closeModal()">&times;</span> -->
-      <h2>Add a New Favorite Link</h2>
+      <h2 style="margin-top: -180px" >Add a New Favorite Link</h2>
       <div class="form-group" style="margin-left: -70%;">
           <label for="newLinkName">Name:</label>
           <input type="text" id="newLinkName" placeholder="Enter the name">
@@ -776,8 +775,8 @@
       <button class="close-popup-button" onclick="closeModal()">Close</button>
       <button class="add-link-button" onclick="addFavoriteLink()">Add Link</button>
   </div>
-
 </div>
+
 
 
 

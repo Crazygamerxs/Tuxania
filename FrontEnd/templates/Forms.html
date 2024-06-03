@@ -613,166 +613,171 @@
     </header>
     <main>
 
-        <!--
+       <!--
       - PRODUCT
     -->
 
     <div class="product-container">
 
-        <div class="container">
-  
-  
-          <!--
-            - SIDEBAR
-          -->
-          <div class="sidebar-container">
-          <div class="sidebar  has-scrollbar" data-mobile-menu>
-  
-            <div class="sidebar-category">
-  
-              <div class="sidebar-top">
-                <h2 class="sidebar-title">Quick Links</h2>
+      <div class="container">
+
+
+        <!--
+          - SIDEBAR
+        -->
+        <div class="sidebar-container">
+        <div class="sidebar  has-scrollbar" data-mobile-menu>
+
+          <div class="sidebar-category">
+
+            <!-- Favorites Bar-->
+
+              <div class="sidebar-top" >
+                <h2 class="sidebar-title">Favorite Links</h2>
   
                 <button class="sidebar-close-btn" data-mobile-menu-close-btn>
                   <ion-icon name="close-outline"></ion-icon>
                 </button>
               </div>
-  
-              <ul class="sidebar-menu-category-list">
-  
-  
-                    <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/dress.svg" alt="clothes" width="20" height="20"
-                        class="menu-title-img">
-   -->
-                      <p class="menu-title">CAR DATABASE</p>
-                    </div>
+              <ul id="favorite-links-list" class="sidebar-menu-category-list">
 
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">CI Tracker</p>
-                    </div>
 
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">IT Ticket Tracker</p>
-                    </div>
+                <button class="sidebar-accordion-menu" data-accordion-btn>
 
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">Logistics Portal</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">Predictive Maintain</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">Machine Training</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
-  
-                      <p class="menu-title">PM Systems</p>
-                    </div>
-
-                  </ul>
-  
-                </li>
-  
-              </ul>
-              
-
-                            <!-- Favorites Bar-->
-
-                <div class="sidebar-top" style="margin-top: 50px;">
-                  <h2 class="sidebar-title">Favorite Links</h2>
+                <div class="menu-title-flex">
     
-                  <button class="sidebar-close-btn" data-mobile-menu-close-btn>
-                    <ion-icon name="close-outline"></ion-icon>
-                  </button>
+                  <p class="menu-title">Disney</p>
                 </div>
-                <ul id="favorite-links-list" class="sidebar-menu-category-list">
-  
-  
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
 
-                  <div class="menu-title-flex">
-      
-                    <p class="menu-title">Disney</p>
-                  </div>
+              <button class="sidebar-accordion-menu" data-accordion-btn>
 
-                <button class="sidebar-accordion-menu" data-accordion-btn>
+                <div class="menu-title-flex">
 
-                  <div class="menu-title-flex">
- 
-                    <p class="menu-title">Minecraft</p>
-                  </div>
+                  <p class="menu-title">Minecraft</p>
+                </div>
 
-                <button class="sidebar-accordion-menu" data-accordion-btn>
+              <button class="sidebar-accordion-menu" data-accordion-btn>
 
-                  <div class="menu-title-flex">
+                <div class="menu-title-flex">
 
 
-                    <p class="menu-title">Elden Rings</p>
-                  </div>
+                  <p class="menu-title">Elden Rings</p>
+                </div>
 
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-                </ul>
-              </li>
-            </ul>      
-            <div class="add-event">
-              <button class="add-event-button-blue" onclick="openModal()">+</button>
-          </div>     
+              <button class="sidebar-accordion-menu" data-accordion-btn>
+              </ul>
+            </li>
+          </ul>      
+          <div class="add-event">
+            <button class="add-event-button-blue" onclick="openModal()">+</button>
+        </div>     
+
+
+        <div class="sidebar-top">
+          <h2 class="sidebar-title" style="margin-top: 50px;">Quick Links</h2>
+
+          <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
         </div>
-    </div>
+
+        <ul class="sidebar-menu-category-list">
+
+
+              <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/dress.svg" alt="clothes" width="20" height="20"
+                  class="menu-title-img">
+-->
+                <p class="menu-title">CAR DATABASE</p>
+              </div>
+
+            <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
+                  height="20"> -->
+
+                <p class="menu-title">CI Tracker</p>
+              </div>
+
+            <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
+                  height="20"> -->
+
+                <p class="menu-title">IT Ticket Tracker</p>
+              </div>
+
+            <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
+                  height="20"> -->
+
+                <p class="menu-title">Logistics Portal</p>
+              </div>
+
+            <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
+                  height="20"> -->
+
+                <p class="menu-title">Predictive Maintain</p>
+              </div>
+
+            <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
+                  height="20"> -->
+
+                <p class="menu-title">Machine Training</p>
+              </div>
+
+            <button class="sidebar-accordion-menu" data-accordion-btn>
+
+              <div class="menu-title-flex">
+                <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
+
+                <p class="menu-title">PM Systems</p>
+              </div>
+
+            </ul>
+
+          </li>
+
+        </ul>
+        
+      </div>
+  </div>
 </div>
+
+
 
 
 <!-- Modal for adding new favorite link -->
 <div id="addLinkModal" class="modal">
-  <div class="modal-content">
-      <!-- <span class="close" onclick="closeModal()">&times;</span> -->
-      <h2>Add a New Favorite Link</h2>
-      <div class="form-group" style="margin-left: -70%;">
-          <label for="newLinkName">Name:</label>
-          <input type="text" id="newLinkName" placeholder="Enter the name">
-      </div>
-      <div class="form-group">
-          <label for="newLinkURL">Link:</label>
-          <input type="text" id="newLinkURL" placeholder="Enter the link">
-      </div>
-      <button class="close-popup-button" onclick="closeModal()">Close</button>
-      <button class="add-link-button" onclick="addFavoriteLink()">Add Link</button>
-  </div>
+<div class="modal-content">
+    <!-- <span class="close" onclick="closeModal()">&times;</span> -->
+    <h2>Add a New Favorite Link</h2>
+    <div class="form-group" style="margin-left: -70%;">
+        <label for="newLinkName">Name:</label>
+        <input type="text" id="newLinkName" placeholder="Enter the name">
+    </div>
+    <div class="form-group">
+        <label for="newLinkURL">Link:</label>
+        <input type="text" id="newLinkURL" placeholder="Enter the link">
+    </div>
+    <button class="close-popup-button" onclick="closeModal()">Close</button>
+    <button class="add-link-button" onclick="addFavoriteLink()">Add Link</button>
 </div>
+
+</div>
+
 
 
 <div class="container-forms">

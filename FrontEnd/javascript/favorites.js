@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function openModal() {
-    document.getElementById('addLinkModal').style.display = 'block';
+    requestAnimationFrame(() => {
+        document.getElementById('addLinkModal').style.display = 'block';
+    });
 }
 
 function closeModal() {
@@ -13,8 +15,12 @@ function closeModal() {
 
 function addFavoriteLink() {
     const linkName = document.getElementById('newLinkName').value;
-    const linkURL = document.getElementById('newLinkURL').value;
+    let linkURL = document.getElementById('newLinkURL').value;
     if (linkName && linkURL) {
+        // Check if the URL starts with http:// or https://, if not, add http://
+        if (!linkURL.startsWith('http://') && !linkURL.startsWith('https://')) {
+            linkURL = 'http://' + linkURL;
+        }
         let links = JSON.parse(localStorage.getItem('favoriteLinks')) || [];
         links.push({ name: linkName, url: linkURL });
         localStorage.setItem('favoriteLinks', JSON.stringify(links));

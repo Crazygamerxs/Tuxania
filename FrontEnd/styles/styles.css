@@ -206,7 +206,7 @@
    * MODAL 
    */
   
-  .modal {
+  /* .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -221,7 +221,7 @@
     pointer-events: none;
     z-index: 10;
     animation: popup 1s ease-in-out 5s forwards;
-  }
+  } */
   
   @keyframes popup {
   
@@ -239,7 +239,7 @@
   
   }
   
-  .modal.closed { display: none; }
+  /* .modal.closed { display: none; }
   
   .modal-close-overlay {
     position: absolute;
@@ -328,14 +328,14 @@
   .btn-newsletter:hover { background: var(--salmon-pink); }
   
   
-  
+   */
   
   
   /**
    * NOTIFICATION TOAST 
    */
   
-  .notification-toast {
+  /* .notification-toast {
     position: fixed;
     bottom: 80px;
     left: 20px;
@@ -421,7 +421,7 @@
   }
   
   
-  
+   */
   
   
   /*-----------------------------------*\
@@ -2570,10 +2570,10 @@
      * #BLOG
      */
   
-    .blog { margin-bottom: 50px; }
+    /* .blog { margin-bottom: 50px; }
     
     .blog-card { min-width: calc(25% - 22.5px); }
-  
+   */
   
   
     /**
