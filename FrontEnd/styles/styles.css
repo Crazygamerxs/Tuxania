@@ -2637,10 +2637,7 @@
       flex-direction: column;
   }
 
-  .single-job-item {
-      flex: 0 0 100%;
-      max-width: 100%;
-  }
+ 
 }
 
 @media (max-width: 992px) {
@@ -2702,10 +2699,7 @@
       margin-top: 20px;
   }
 
-  .job-content {
-      flex-direction: column;
-      align-items: center;
-  }
+  
 
   .forms-section {
       width: 100%;
@@ -2750,8 +2744,5 @@
       width: 100%;
   }
 
-  .single-job-item {
-      flex: 0 0 100%;
-      max-width: 100%;
-  }
+  
 }
