@@ -236,6 +236,49 @@
     cursor: pointer;
 }
 
+#event-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+#event-form input[type="date"],
+#event-form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.event-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.event-form-buttons button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.event-form-buttons button[type="button"] {
+    background-color: #dc3545;
+}
+
+.event-form-buttons button:hover {
+    opacity: 0.9;
+}
+
+.event-form-buttons button[type="button"]:hover {
+    background-color: #c82333;
+}
 
 
 /*-------------------------------------*\
