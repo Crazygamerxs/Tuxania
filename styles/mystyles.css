@@ -112,6 +112,10 @@
   #EVENTS SECTION
 \*-----------------------------------*/
 
+.events-sidebar{
+margin-top:-1em;
+}
+
 .event {
     display: flex;
     align-items: center;
@@ -123,13 +127,14 @@
     height: 90px;
     margin-right: -52%;
     margin-left: 40%;
+    max-width:310px;
 }
 
 .event-date {
     background-color: #f02222;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     width: 80px;
     display: flex;
     flex-direction: column;
@@ -158,9 +163,6 @@
 }
 
 .add-event {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 20px;
 }
 
@@ -281,6 +283,7 @@
 }
 
 
+
 /*-------------------------------------*\
     #JOB SECTION
 \*-------------------------------------*/
@@ -294,6 +297,12 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+}
+.job-container {
+    align-items: center;
+    width: 100%;
+    margin-top: -8%;
+    margin-left: 8%;
 }
 
 .row {
@@ -735,7 +744,19 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1400px){
+    .events-sidebar{
+    margin-left:10%;
+    }
+
+@media (max-width: 1200px){
+    .events-sidebar{
+    margin-left:-10%;
+    }
+
+}
+
+@media (max-width: 1199px) {
     .job {
         margin-top: -290px;
         margin-left: 23%;
