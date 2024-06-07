@@ -1,0 +1,1 @@
+DELETE FROM Events WHERE id = :id;

@@ -48,28 +48,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('event-form').onsubmit = async function(e) {
         e.preventDefault();
         console.log("Event form submitted.");
-
-        // Get form values
+    
         var date = document.getElementById('event-date').value;
         var description = document.getElementById('event-description').value;
-
+    
         try {
             await fetch(`/system/webdev/Tuxania/Python_Scripts/save_event?date=${encodeURIComponent(date)}&description=${encodeURIComponent(description)}`, {
                 method: 'POST'
             });
-                      
+    
             renderEvent({ 'event_date': date, 'event_description': description });
-                      
+    
             document.getElementById('event-form').reset();
             modal.style.display = 'none';
+            // Reload the page
+            location.reload();
         } catch (error) {
             console.error('Error:', error);
         }
     }
 
+
     function renderEvent(event) {
         var newEvent = document.createElement('div');
         newEvent.classList.add('event');
+        newEvent.setAttribute('data-id', event.id); // Use data-id attribute for easy removal
 
         var eventDate = new Date(event.event_date);
         var day = eventDate.getDate();
@@ -83,8 +86,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 <div class="date-year">${year}</div>
             </div>
             <div class="event-description">${event.event_description}</div>
+            <button class="trash-icon-btn" onclick="deleteEvent(${event.id})">
+                <img src="../Images/trash-icon.png" alt="Trash Icon" class="trash-icon">
+            </button>
         `;
         document.querySelector('.events-list').appendChild(newEvent);
+    }
+
+    async function deleteEvent(eventId) {
+        try {
+            const response = await fetch(`/system/webdev/Tuxania/Python_Scripts/delete_event?id=${eventId}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                console.log("Event deleted successfully.");
+                // Remove the event from the DOM
+                document.querySelector(`.event[data-id="${eventId}"]`).remove();
+            } else {
+                console.error('Failed to delete event with status:', response.status);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     fetch('/system/webdev/Tuxania/Python_Scripts/get_event')
@@ -96,3 +120,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch(error => console.error('Error fetching events:', error));
 });
+
+window.deleteEvent = async function(eventId) {
+    try {
+        const url = `/system/webdev/Tuxania/Python_Scripts/delete_event?id=${eventId}`;
+        console.log("Sending DELETE request to URL:", url);
+        
+        await fetch(url, {
+            method: 'DELETE'
+        });
+
+        console.log("Event deleted successfully.");
+        // Remove the event from the DOM
+        document.querySelector(`.event[data-id="${eventId}"]`).remove();
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+

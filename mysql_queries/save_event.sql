@@ -1,0 +1,1 @@
+INSERT INTO Events (event_date, event_description) VALUES (:Date, :Description);
