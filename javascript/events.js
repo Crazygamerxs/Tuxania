@@ -1,3 +1,6 @@
+// Initialize authenticated variable with the value from sessionStorage, if available
+var authenticated = sessionStorage.getItem('authenticated') === 'true';
+
 document.addEventListener('DOMContentLoaded', (event) => {
     var modal = document.getElementById('event-modal');
     var btn = document.querySelector('.add-event-button');
@@ -24,7 +27,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (response.ok) {
                 console.log("Authentication successful.");
+                authenticated = true; // Update authentication status
+                sessionStorage.setItem('authenticated', 'true'); // Store authentication status in sessionStorage
                 modal.style.display = 'block';
+                console.log(authenticated);
             } else if (response.status === 401) {
                 alert('Authorization failed. Please check your credentials and try again.');
             } else if (response.status === 403) {
@@ -36,14 +42,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.error('Error:', error);
         }
     }
-
-    span.onclick = function() {
-        modal.style.display = 'none';
-    }
-
-    closeModalBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
+  
+      span.onclick = function() {
+          modal.style.display = 'none';
+      }
+  
+      closeModalBtn.onclick = function() {
+          modal.style.display = 'none';
+      }
 
     document.getElementById('event-form').onsubmit = async function(e) {
         e.preventDefault();
@@ -69,16 +75,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
 
-    function renderEvent(event) {
+  function renderEvent(event) {
         var newEvent = document.createElement('div');
         newEvent.classList.add('event');
         newEvent.setAttribute('data-id', event.id); // Use data-id attribute for easy removal
-
+    
         var eventDate = new Date(event.event_date);
         var day = eventDate.getDate();
         var month = eventDate.toLocaleString('default', { month: 'short' });
         var year = eventDate.getFullYear();
-
+    
         newEvent.innerHTML = `
             <div class="event-date">
                 <div class="date-day">${day}</div>
@@ -86,12 +92,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 <div class="date-year">${year}</div>
             </div>
             <div class="event-description">${event.event_description}</div>
-            <button class="trash-icon-btn" onclick="deleteEvent(${event.id})">
-                <img src="../Images/trash-icon.png" alt="Trash Icon" class="trash-icon">
-            </button>
         `;
+        
+        // Create the trash icon element
+        if (authenticated) {
+            var trashIcon = document.createElement('img');
+            trashIcon.src = "../Images/trash-icon.png";
+            trashIcon.alt = "Trash Icon";
+            trashIcon.classList.add('event-trash-icon');
+            trashIcon.onclick = function() {
+                deleteEvent(event.id);
+            };
+            newEvent.appendChild(trashIcon);
+        }
+        
         document.querySelector('.events-list').appendChild(newEvent);
     }
+
 
     async function deleteEvent(eventId) {
         try {

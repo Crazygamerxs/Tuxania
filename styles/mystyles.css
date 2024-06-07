@@ -122,8 +122,9 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    vertical-align: middle; 
+    margin-left: 10px; 
 }
 
 .trash-icon {
@@ -186,7 +187,7 @@ margin-top:-1em;
 
 .event-description {
     padding: 10px;
-    flex: 1;
+    flex-grow: 1;
 }
 
 .add-event {
@@ -226,6 +227,12 @@ margin-top:-1em;
 .add-event-button-blue:hover {
     background-color: #000000;
     color: white;
+}
+
+.event-trash-icon{
+    width:25px;
+    height: 25px;
+    margin-top: 50px;
 }
 
 /* Event Modal Styles */
@@ -820,4 +827,5 @@ margin-top:-1em;
         margin-left: 650px;
         margin-top: 20px;
     }
+}
 }
