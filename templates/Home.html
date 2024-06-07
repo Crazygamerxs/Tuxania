@@ -828,41 +828,38 @@
         
 
      <!-- Events Section -->
-        <div class="events-sidebar" >
-            <h1 class="event-h1">Events</h1>
-            <div id="events-list" class="events-list">
-                <!-- Events will be inserted here by JavaScript -->
-            </div>
-            <div class="add-event">
-                <button class="add-event-button">+</button>
-            </div>
-        </div>
-        
-        <!-- Add a container for the popup message -->
-        <div id="auth-popup" style="display:none; color: white; background-color: red; padding: 10px; position: fixed; top: 10px; right: 10px; border-radius: 5px; z-index: 1000;">
-            You are not authorized to add events
-        </div>
-        
-        <!-- Event Modal -->
-        <div id="event-modal" class="event-modal">
-            <div class="event-modal-content">
-                <span class="event-modal-close">&times;</span>
-                <h2>Add New Event</h2>
-                <form id="event-form">
-                    <label for="event-day">Day:</label>
-                    <input type="text" id="event-day" name="event-day" required>
-                    <label for="event-month">Month:</label>
-                    <input type="text" id="event-month" name="event-month" required>
-                    <label for="event-description">Description:</label>
-                    <input type="text" id="event-description" name="event-description" required>
-                    <div class="event-form-buttons">
-                        <button type="submit">Add Event</button>
-                        <button type="button" id="close-event-modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
+     <div class="events-sidebar" >
+      <h1 class="event-h1">Events</h1>
+      <div id="events-list" class="events-list">
+          <!-- Events will be inserted here by JavaScript -->
+      </div>
+      <div class="add-event">
+          <button class="add-event-button">+</button>
+      </div>
+  </div>
+  
+  <!-- Add a container for the popup message -->
+  <div id="auth-popup" style="display:none; color: white; background-color: red; padding: 10px; position: fixed; top: 10px; right: 10px; border-radius: 5px; z-index: 1000;">
+      You are not authorized to add events
+  </div>
+  
+  <!-- Event Modal -->
+  <div id="event-modal" class="event-modal">
+      <div class="event-modal-content">
+          <span class="event-modal-close">&times;</span>
+          <h2>Add New Event</h2>
+          <form id="event-form">
+              <label for="event-date">Date:</label>
+              <input type="date" id="event-date" name="event-date" required>
+              <label for="event-description">Description:</label>
+              <input type="text" id="event-description" name="event-description" required>
+              <div class="event-form-buttons">
+                  <button type="submit">Add Event</button>
+                  <button type="button" id="close-event-modal">Close</button>
+              </div>
+          </form>
+      </div>
+  </div>
 
 
 

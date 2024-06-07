@@ -108,6 +108,33 @@
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+/*----------------------------------*\
+    #TRASH ICON
+\*----------------------------------*/
+.menu-title-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.trash-icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.trash-icon {
+    width: 18px;
+    height: 18px;
+}
+
+
+
+
+
 /*-----------------------------------*\
   #EVENTS SECTION
 \*-----------------------------------*/
@@ -221,7 +248,7 @@ margin-top:-1em;
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
 }
 
 .event-modal-close {
