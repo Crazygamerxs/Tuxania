@@ -1,0 +1,170 @@
+{
+    "links": [
+      {
+        "name": "5S Checklist",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/fiveschecklist/"
+      },
+      {
+        "name": "Automotive News",
+        "url": "http://www.autonews.com"
+      },
+      {
+        "name": "Bend All Email",
+        "url": "https://outlook.office.com/mail/"
+      },
+      {
+        "name": "Brose",
+        "url": "https://www.brose.com/de-en/purchasing/supplier-portal-program/supplier-portal.html"
+      },
+      {
+        "name": "CAMI Supplier Portal",
+        "url": "https://supplier.cami.ca"
+      },
+      {
+        "name": "CAR Database",
+        "url": "http://tuxania/car/"
+      },
+      {
+        "name": "Covisint Connect",
+        "url": "https://www.opentext.com/products/business-network-cloud"
+      },
+      {
+        "name": "Cutter - Aluminum",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutters"
+      },
+      {
+        "name": "Cutters - Cap C",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutters-capc"
+      },
+      {
+        "name": "Cutters - Steel",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutterssteel"
+      },
+      {
+        "name": "Daimler",
+        "url": "https://supplier-portal.daimler.com/portal/en"
+      },
+      {
+        "name": "Denso",
+        "url": "https://supplier.densosystems.com/Account/Login?ReturnUrl=%2F"
+      },
+      {
+        "name": "EPC Containment Log DB",
+        "url": "http://tuxania/EpcContainment/"
+      },
+      {
+        "name": "GM Supply Power",
+        "url": "https://gmsupplypower.covisint.com/web/portal/home"
+      },
+      {
+        "name": "Hose Cutter",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/hosecutters"
+      },
+      {
+        "name": "Ignition Allwork-Supervisor",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork_supervisor/home"
+      },
+      {
+        "name": "Job Rotation",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/jobrotation"
+      },
+      {
+        "name": "Layered Process Audit",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/lpa"
+      },
+      {
+        "name": "List of High Demand Materials",
+        "url": "http://tuxania/hotmaterials/"
+      },
+      {
+        "name": "Logistics Portal",
+        "url": "http://tuxania/LogisticsPortal"
+      },
+      {
+        "name": "Machine Operator Training DB",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/"
+      },
+      {
+        "name": "Machine Training Checklist",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/checklist"
+      },
+      {
+        "name": "Maintenance & Work Orders DB",
+        "url": "http://tuxania/maintenanceandworkorder/"
+      },
+      {
+        "name": "Magna",
+        "url": "https://www.magna.com/company/suppliers"
+      },
+      {
+        "name": "MIIC Area Scheduler",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/miic/scheduler"
+      },
+      {
+        "name": "NCR/RMA Database",
+        "url": "http://tuxania/NCRDatabase/"
+      },
+      {
+        "name": "Orders to be Shipped",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/production_control/production_orders"
+      },
+      {
+        "name": "Operational Dashboard",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/dashboards/production/efficiency"
+      },
+      {
+        "name": "PM System",
+        "url": "http://tuxania/pm/"
+      },
+      {
+        "name": "Predictive Maintenance",
+        "url": "http://tuxania/Predictive/"
+      },
+      {
+        "name": "PRS DB",
+        "url": "http://tuxania/prshistory/"
+      },
+      {
+        "name": "Production Reports",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/dashboards/production/partnumberreport"
+      },
+      {
+        "name": "Quality Alert DB",
+        "url": "http://tuxania/QAS/"
+      },
+      {
+        "name": "Rivian - Crimpers",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/riviancrimperskanban"
+      },
+      {
+        "name": "Rivian - Hose Cutter",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/rivianhosecutter"
+      },
+      {
+        "name": "Scrap Entry",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/scrapentry"
+      },
+      {
+        "name": "Service Orders Dashboard",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/service_orders_dashboard"
+      },
+      {
+        "name": "SQRP DB",
+        "url": "http://tuxania/SQPR/"
+      },
+      {
+        "name": "Supplier Quality Database",
+        "url": "http://tuxania/supplierQuality/"
+      },
+      {
+        "name": "Temperature Sensor",
+        "url": "https://ignition.bend-all.com:8043/data/perspective/client/temperature_sensors/"
+      },
+      {
+        "name": "Valeo Supplier Portal",
+        "url": "https://suppliers.valeo.com/suppliers/"
+      }
+      
+    ]
+  }
+  
