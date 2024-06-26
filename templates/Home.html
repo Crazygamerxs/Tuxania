@@ -109,6 +109,7 @@
                <button class="search-btn">
                    <ion-icon name="search-outline"></ion-icon>
                </button>
+               
                <div class="dropdown-content" id="dropdown-content"></div>
            </div>
        
@@ -121,8 +122,14 @@
                    <a href="#" target="_blank" data-header></a>
                </div>
            </template>
-        
+        <button class="login-btn" >
+              <ion-icon name="person-outline"></ion-icon>
+        </button>
 
+      </div>
+<!-- Add a container for the popup message -->
+      <div id="auth-popup" style="display:none; color: white; background-color: red; padding: 10px; position: fixed; top: 10px; right: 10px; border-radius: 5px; z-index: 1000;">
+          Authentication Failed
       </div>
 
     </div>
@@ -472,9 +479,9 @@
               </ul>
             </li> -->
   
-            <li class="menu-category">
-              <a href="Forms.html" class="menu-title">Forms</a>
-            </li>
+            <!-- <li class="menu-category">
+                          <a href="Forms.html" class="menu-title">Forms</a>
+                        </li>-->
   
             <li class="menu-category">
               <a href="#" class="menu-title">Automotive Links</a>
@@ -552,15 +559,13 @@
           <!-- Dynamic banners will be inserted here -->
         </div>
         <!-- Button to open the modal -->
-        <button class="add-banner-btn" onclick="openModalBanner()">+</button>
+        <button id="addBannerBtn" class="add-banner-btn" style="display: none;" onclick="openModalBanner()">+</button>
       </div>
     </div>
     
-  <!-- Modal for adding a banner -->
     <div id="addBannerModal" class="modal">
       <div class="modal-content">
-        <!--<span class="close" onclick="closeModalBanner()">&times;</span>-->
-        <h2 style="margin-top: -80%;">Add New Banner</h2>
+        <h2 style="margin-top:-65%">Add New Banner</h2>
         <form id="banner-form">
           <div class="form-group">
             <label for="banner-title">Title:</label>
@@ -569,10 +574,6 @@
           <div class="form-group">
             <label for="banner-subtitle">Subtitle:</label>
             <input type="text" id="banner-subtitle" name="subtitle" required>
-          </div>
-          <div class="form-group">
-            <label for="banner-detail">Detail:</label>
-            <textarea id="banner-detail" name="detail" required></textarea>
           </div>
           <div class="form-group">
             <label for="banner-image">Image URL:</label>
@@ -585,6 +586,33 @@
         </form>
       </div>
     </div>
+    
+    <div id="editBannerModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <h2 style="margin-top:-65%">Edit Banner</h2>
+        <form id="edit-banner-form">
+          <div class="form-group">
+            <label for="edit-banner-title">Title:</label>
+            <input type="text" id="edit-banner-title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-banner-subtitle">Subtitle:</label>
+            <input type="text" id="edit-banner-subtitle" name="subtitle" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-banner-image">Image URL:</label>
+            <input type="text" id="edit-banner-image" name="image" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="edit-modal-submit-button">Save Changes</button>
+            <button type="button" class="edit-modal-delete-button" onclick="deleteBanner()">Delete Banner</button>
+            <button type="button" class="edit-modal-close-button" onclick="closeEditModalBanner()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
 
 
     
@@ -762,10 +790,10 @@
                 <button class="sidebar-accordion-menu" data-accordion-btn>
 
                 <div class="menu-title-flex">
-                  <!-- <img src="./assets/images/icons/dress.svg" alt="clothes" width="20" height="20"
-                    class="menu-title-img">
--->
-                  <p class="menu-title">CAR DATABASE</p>
+    
+                 <a href="http://tuxania/car/" target="_blank" class="menu-title-link">
+                            <p class="menu-title">CAR DATABASE</p>
+                        </a>
                 </div>
 
               <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -773,8 +801,9 @@
                 <div class="menu-title-flex">
                   <!-- <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
                     height="20"> -->
-
+                <a href="http://tuxania/citracker/" target="_blank" class="menu-title-link">
                   <p class="menu-title">CI Tracker</p>
+                  </a>
                 </div>
 
               <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -782,8 +811,9 @@
                 <div class="menu-title-flex">
                   <!-- <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
                     height="20"> -->
-
+                   <a href="http://tuxania/itticket.html" target="_blank" class="menu-title-link">
                   <p class="menu-title">IT Ticket Tracker</p>
+                  </a>
                 </div>
 
               <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -791,8 +821,9 @@
                 <div class="menu-title-flex">
                   <!-- <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
                     height="20"> -->
-
+                    <a href="http://tuxania/LogisticsPortal/" target="_blank" class="menu-title-link">
                   <p class="menu-title">Logistics Portal</p>
+                  </a>
                 </div>
 
               <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -800,8 +831,9 @@
                 <div class="menu-title-flex">
                   <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
                     height="20"> -->
-
+                    <a href="http://tuxania/Predictive/" target="_blank" class="menu-title-link">
                   <p class="menu-title">Predictive Maintain</p>
+                  </a>
                 </div>
 
               <button class="sidebar-accordion-menu" data-accordion-btn>
@@ -809,16 +841,18 @@
                 <div class="menu-title-flex">
                   <!-- <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
                     height="20"> -->
-
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/checklist" target="_blank" class="menu-title-link">
                   <p class="menu-title">Machine Training</p>
+                  </a>
                 </div>
 
               <button class="sidebar-accordion-menu" data-accordion-btn>
 
                 <div class="menu-title-flex">
                   <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
-
+                   <a href="http://tuxania/pm/" target="_blank" class="menu-title-link">
                   <p class="menu-title">PM Systems</p>
+                  </a>
                 </div>
 
               </ul>
@@ -859,7 +893,7 @@
           <!--
             - FORMS LIST
           -->
-          <div class="forms">
+       <!--   <div class="forms">
             <div class="column">
                 <h1 class="name" >Forms</h1>
             </div>
@@ -899,7 +933,13 @@
               <button class="responsive-button">
                 <img src="../Images/forms/ticket.png" alt="Icon" class="button-icon">
                 IT Ticket Tracker</button>
+        </div>-->
+      <div class="forms-section">
+            <div class="grid-container" id="form-links">
+                <!-- Dynamic content will be inserted here -->
+            </div>
         </div>
+
         
 
             <!-- Events Section -->
@@ -909,7 +949,7 @@
                     <!-- Events will be inserted here by JavaScript -->
                 </div>
                 <div class="add-event">
-                    <button class="add-event-button">+</button>
+                  <button id="addEventBtn" class="add-event-button" style="display: none;">+</button>
                 </div>
             </div>
             
@@ -997,75 +1037,52 @@
    
 
   <!-- Footer Section -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-left">
-            <img src="../Images/hdt-logo.png" alt="Hdt Logo" class="footer-img">
-            <div class="contact-info">
-                <p><strong>Contact us</strong></p>
-                <p><strong>Address</strong><br>575 Waydom Dr</p>
-                <p><strong>E-mail</strong><br><a href="mailto:BendAll@hdt-ca.com">BendAll@hdt-ca.com</a></p>
-                <p><strong>Phone</strong><br>+1 (519) 623-2002</p>
-            </div>
-            <div class="follow-us">
-                <p><strong>Follow us</strong></p>
-                <div class="social-icons">
-                    <a href="#"><img src="../Images/socials/linkedin.png" alt="LinkedIn"></a>
-                    <a href="#"><img src="../Images/socials/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="../Images/socials/instagram.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-right">
-            <form id="contactForm" action="#" method="POST">
-                <input type="text" name="name" placeholder="Name" id="name">
-                <input type="email" name="email" placeholder="E-Mail" id="email">
-                <select name="category" id="category">
-                    <option value="Feedback">Feedback</option>
-                    <option value="Request">Request</option>
-                    <option value="Suggestion">Suggestion</option>
-                </select>
-                <textarea name="message" placeholder="How can we help?" id="message"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </div>
-</footer>
+ <!-- Footer Section -->
+     <footer>
+         <div class="footer-container">
+             <div class="footer-left">
+                 <img src="../Images/hdt-logo.png" alt="Hdt Logo" class="footer-img">
+                 <div class="contact-info">
+                     <p><strong>Contact us</strong></p>
+                     <p><strong>Address</strong><br>575 Waydom Dr</p>
+                     <p><strong>E-mail</strong><br><a href="mailto:BendAll@hdt-ca.com">BendAll@hdt-ca.com</a></p>
+                     <p><strong>Phone</strong><br>+1 (519) 623-2002</p>
+                 </div>
+                 <div class="follow-us">
+                     <p><strong>Follow us</strong></p>
+                     <div class="social-icons">
+                         <a href="https://www.linkedin.com/company/bend-all-automotive-ulc/?originalSubdomain=ca" target="_blank"><img src="../Images/socials/linkedin.png" alt="LinkedIn"></a>
+                         <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwip2ZeqqvmGAxUzgv0HHSePBEAQFnoECBEQAQ&url=https%3A%2F%2Fm.facebook.com%2Fprofile.php%3Fid%3D559885350736093&usg=AOvVaw3068nUf7xucXJrGuLRXukF&opi=89978449" target="_blank"><img src="../Images/socials/facebook.png" alt="Facebook"></a>
+                         <a href="https://www.instagram.com/explore/locations/1708845916040099/bend-all-automotive-inc/" target="_blank"><img src="../Images/socials/instagram.png" alt="Instagram"></a>
+                     </div>
+                 </div>
+             </div>
+             <div class="footer-right">
+                 <form id="contactForm" action="#" method="POST">
+                     <input type="text" name="name" placeholder="Name" id="name">
+                     <input type="email" name="email" placeholder="E-Mail" id="email" required>
+                     <select name="category" id="category">
+                         <option value="Feedback">Feedback</option>
+                         <option value="Request">Request</option>
+                         <option value="Suggestion">Suggestion</option>
+                     </select>
+                     <textarea name="message" placeholder="How can we help?" id="message" required></textarea>
+                     <button type="submit">Send Message</button>
+                 </form>
+             </div>
+         </div>
+     </footer>
 
 </body>
 <script src="../javascript/script.js"></script>
 <script src="../javascript/favorites.js"></script>
 <script src="../javascript/events.js"></script>
 <script src="../javascript/sendEmail.js"></script>
-<script>
-  // Fetch and display links from JSON
-     hen(response => response.json())
-          .then(data => {
-              const linksList = document.getElementById('links-list');
-              data.links.forEach(link => {
-                  const linkElement = document.createElement('div');
-                  linkElement.className = 'link';
-                  linkElement.innerHTML = `<a href="${link.url}" target="_blank">${link.name}</a>`;
-                  linksList.appendChild(linkElement);
-              });
-          });
+<script src="../javascript/get_form_click_data.js"></script>
 
-      // Filter links based on search input
-      function filterLinks() {
-          const searchValue = document.getElementById('search').value.toLowerCase();
-          const links = document.querySelectorAll('.link');
-          links.forEach(link => {
-              const linkText = link.textContent.toLowerCase();
-              if (linkText.includes(searchValue)) {
-                  link.style.display = '';
-              } else {
-                  link.style.display = 'none';
-              }
-          });
-      }
-</script>
 <script src="../javascript/search_filter.js"></script>
 <script src="../javascript/banner.js"></script>
+
 <!--
     - ionicon link
   -->

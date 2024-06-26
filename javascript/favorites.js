@@ -45,9 +45,11 @@ function renderFavoriteLinks() {
         listItem.setAttribute('data-index', index);
         listItem.innerHTML = `
             <div class="menu-title-flex">
-                <span>⋮⋮ </span><a href="${link.url}" target="_blank" class="menu-title">${link.name}</a>
-                <button onclick="removeLink(${index})">Remove</button>
-            </div>
+            <span>⋮⋮ </span><a href="${link.url}" target="_blank" class="menu-title">${link.name}</a>
+            <button class="trash-icon-btn" onclick="removeLink(${index})">
+                <img src="../Images/trash-icon.png" alt="Trash Icon" class="trash-icon">
+            </button>
+        </div>
         `;
         list.appendChild(listItem);
     });

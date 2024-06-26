@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuxania/HR</title>
+    <title>Tuxania</title>
     <!--link to the css style sheet-->
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/mystyles.css">
@@ -105,433 +105,444 @@
         </a>
 
         <div class="header-search-container">
+               <input type="search" name="search" class="search-field" placeholder="Search Bar..." onkeyup="filterLinks()">
+               <button class="search-btn">
+                   <ion-icon name="search-outline"></ion-icon>
+               </button>
+               
+               <div class="dropdown-content" id="dropdown-content"></div>
+           </div>
+       
+           <div class="content hidden">
+               <div data-user-cards-container></div>
+           </div>
+       
+           <template data-user-template>
+               <div class="link">
+                   <a href="#" target="_blank" data-header></a>
+               </div>
+           </template>
+        <button class="login-btn" >
+              <ion-icon name="person-outline"></ion-icon>
+        </button>
 
-          <input type="search" name="search" class="search-field" placeholder="Search Bar...">
-
-          <button class="search-btn">
-            <ion-icon name="search-outline"></ion-icon>
-          </button>
-
-        </div>
-
-        
-
+      </div>
+<!-- Add a container for the popup message -->
+      <div id="auth-popup" style="display:none; color: white; background-color: red; padding: 10px; position: fixed; top: 10px; right: 10px; border-radius: 5px; z-index: 1000;">
+          Authentication Failed
       </div>
 
     </div>
 
-   
-         <nav class="desktop-navigation-menu">
-      
-            <div class="container">
-      
-              <ul class="desktop-menu-category-list">
-      
-                <li class="menu-category">
-                  <a href="Home.html" class="menu-title">Home</a>
-                </li>
-      
-                <li class="menu-category">
-                  <a href="Applications.html" class="menu-title">Applications</a>
-      
-                  <div class="dropdown-panel">
-      
-                    <ul class="dropdown-panel-list">
-      
-                      <li class="menu-title">
-                        <a href="#">Operations</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/dashboards/production/efficiency" target="_blank">Operational Dashboard</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/dashboards/production/partnumberreport" target="_blank">Production Reports</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/ " target="_blank">Machine Operator Training DB</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork_supervisor/home" target="_blank">Ignition Allwork-Supervisor</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/scrapentry" target="_blank">Scrap Entry</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/standard_work/" target="_blank">Leader Standard Work</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/checklist" target="_blank">Machine Training Checklist</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/fiveschecklist/" target="_blank">5S Checklist</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/miic/scheduler" target="_blank">MIIC Area Scheduler</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/service_orders_dashboard" target="_blank">Service Orders Dashboard</a>
-                      </li>
-      
-                      <!-- <li class="panel-list-item">
-                        <a href="#">
-                          <img src="./assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250"
-                            height="119">
-                        </a>
-                      </li> -->
-      
-                    </ul>
-      
-                    <ul class="dropdown-panel-list">
-      
-                      <li class="menu-title">
-                        <a href="#">More Operations</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/prshistory/" target="_blank">PRS DB</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/production_control/production_orders" target="_blank">Orders to be Shipped</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutters" target="_blank">Cutter - Aluminum</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutterssteel" target="_blank">Cutters - Steel</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutters-capc" target="_blank">Cutters - Cap C</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/hosecutters" target="_blank">Hose Cutter</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/steelcrimpers1" target="_blank">Crimpers - Steel 3/8"</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/steelcrimpers2" target="_blank">Crimpers - Steel 1/2" 5/8"</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/rivianhosecutter" target="_blank">Rivian - Hose Cutter</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/riviancrimperskanban" target="_blank">Rivian - Crimpers</a>
-                      </li>
-                      
-      
-                      <!-- <li class="panel-list-item">
-                        <a href="#">
-                          <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
-                        </a>
-                      </li> -->
-      
-                    </ul> 
-      
-                     <ul class="dropdown-panel-list">
-      
-                      <li class="menu-title">
-                        <a href="#">Quality</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/car/" target="_blank">CAR Database</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/lpa" target="_blank">Layered Process Audit</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/NCRDatabase/" target="_blank">NCR/RMA Database</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/QAS/" target="_blank">Quality Alert DB</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/EpcContainment/" target="_blank">EPC Containment Log DB</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/SQPR/" target="_blank">SQRP DB</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/ebinder_admin" target="_blank">eBinder Admin</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/supplierQuality/" target="_blank">Supplier Quality Database</a>
-                      </li>
-      
-                    </ul>
-      
-                     <ul class="dropdown-panel-list">
-      
-                      <li class="menu-title">
-                        <a href="#">HR</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/jobrotation" target="_blank">Job Rotation</a>
-                      </li>
-                      
-                      <li class="panel-list-item">
-                        <a href="https://ignition.bend-all.com:8043/data/perspective/client/temperature_sensors/" target="_blank">Temperature Sensor</a>
-                      </li>
-      
-                      <li class="menu-title" style="margin-top: 10px;">
-                        <a href="#">Material</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/hotmaterials/" target="_blank">List of High Demand Materials</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/LogisticsPortal" target="_blank">Logistics Portal</a>
-                      </li>
-      
-                      
-      
-                      <li class="menu-title" style="margin-top: 10px;">
-                        <a href="#">Maintenance</a>
-                      </li>                
-                      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/Predictive/">Predictive Maintenance</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/maintenanceandworkorder/">Maintenance & Work Orders DB</a>
-                      </li>
-      
-                      <li class="panel-list-item">
-                        <a href="http://tuxania/pm/">PM System</a>
-                      </li>
-      
-                      <!--<li class="panel-list-item">
-                        <a href="#"></a>
-                      </li>-->
-      
-                    </ul>
-      
-                   
-      
-                  </div>
-                </li> 
-      
-                <li class="menu-category">
-                  <a href="Quality.html" class="menu-title" id="hrLink">Quality</a>
-      
-                  <ul class="dropdown-list">
-      
-                    <li class="dropdown-item">
-                      <a href="https://ignition.bend-all.com:8043/data/perspective/client/ebinder_admin" target="_blank">eBinder Admin</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="http://tuxania/supplierQuality/" target="_blank">Supplier Quality Database</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="https://ignition.bend-all.com:8043/data/perspective/client/lpa" target="_blank">Layered Process Audit</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="http://tuxania/QAS/" target="_blank">Quality Alert DB</a>
-                    </li>
-                    
-                     <li class="dropdown-item">
-                      <a href="http://tuxania/SQPR/" target="_blank">SQRP DB</a>
-                     </li>
-      
-                  </ul>
-                </li>
-      
-      
-                <li class="menu-category">
-                  <a href="HR.html" class="menu-title" id="hrLink" >H.R.</a>
-      
-                  <ul class="dropdown-list">
-      
-                    <li class="dropdown-item">
-                      <a href="http://tuxania/hr_report_incident/CreateIncident.aspx" target="_blank">Report Incident</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Emergency Contact List</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="https://www.canada.ca/en/employment-social-development.html" target="_blank" >Employement Insurance</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">H&S Policy</a>
-                    </li>
-      
-                  </ul>
-                </li>
-      
-                <!-- <li class="menu-category">
-                  <a href="#" class="menu-title">I.T.</a>
-      
-                  <ul class="dropdown-list">
-      
-                    <li class="dropdown-item">
-                      <a href="#">IT Ticket System Form</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                  </ul>
-                </li> -->
-      
-                <li class="menu-category">
-                  <a href="Operations.html" class="menu-title">Operations</a>
-      
-                  <ul class="dropdown-list">
-      
-                    <li class="dropdown-item">
-                      <a href="http://tuxania/OperationsNew.aspx" target="_blank">Machine Location</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Contingency Plan</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="https://ignition.bend-all.com:8043/idp/AD/authn/login?app=perspective&token=_nVBhoL-wXJ8LhWHFltLvQHY28GPHAiTWfu8sggNsGg&response_type=code&client_id=ignition&redirect_uri=%2Fdata%2Ffederate%2Fcallback%2Fignition&scope=openid&state=eyJraWQiOiJrMSIsImFsZyI6IkhTMjU2In0.eyJqdGkiOiJzVWFoMWZGS1FZc25EWGdDaFVza0FKbzBvcEw5OEp4cEtsd2REb3VsWjRRIiwidXJpIjoiL2RhdGEvcGVyc3BlY3RpdmUvY2xpZW50L2ViaW5kZXJfYWRtaW4ifQ.qhecTDfCUsjP8lbFzoQ1fZfXQ8YUo_Zgz-D8VF1VtKE&nonce=OzcurkX_jVCapBH_astE5N6RegWA-IRNGYDMO3dRAU8&prompt=login&max_age=1" target="_blank">eBinder Admin</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="http://tuxania/Purchasingdashboard.aspx" target="_blank">Purchasing Dashboard</a>
-                    </li>
-      
-                  </ul>
-                </li>
-      
-                <!-- <li class="menu-category">
-                  <a href="#" class="menu-title">Quality</a>
-      
-                  <ul class="dropdown-list">
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                    <li class="dropdown-item">
-                      <a href="#">Blah</a>
-                    </li>
-      
-                  </ul>
-                </li> -->
-      
-                <li class="menu-category">
-                  <a href="Forms.html" class="menu-title">Forms</a>
-                </li>
-      
-                <li class="menu-category">
-                  <a href="#" class="menu-title">Automotive Links</a>
+     <nav class="desktop-navigation-menu">
+  
+        <div class="container">
+  
+          <ul class="desktop-menu-category-list">
+  
+            <li class="menu-category">
+              <a href="Home.html" class="menu-title">Home</a>
+            </li>
+  
+            <li class="menu-category">
+              <a href="Applications.html" class="menu-title">Applications</a>
+  
+              <div class="dropdown-panel">
+  
+                <ul class="dropdown-panel-list">
+  
+                  <li class="menu-title">
+                    <a href="#">Operations</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/dashboards/production/efficiency" target="_blank">Operational Dashboard</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/dashboards/production/partnumberreport" target="_blank">Production Reports</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/ " target="_blank">Machine Operator Training DB</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork_supervisor/home" target="_blank">Ignition Allwork-Supervisor</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/scrapentry" target="_blank">Scrap Entry</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/standard_work/" target="_blank">Leader Standard Work</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/checklist" target="_blank">Machine Training Checklist</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/fiveschecklist/" target="_blank">5S Checklist</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/miic/scheduler" target="_blank">MIIC Area Scheduler</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/service_orders_dashboard" target="_blank">Service Orders Dashboard</a>
+                  </li>
+  
+                  <!-- <li class="panel-list-item">
+                    <a href="#">
+                      <img src="./assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250"
+                        height="119">
+                    </a>
+                  </li> -->
+  
+                </ul>
+  
+                <ul class="dropdown-panel-list">
+  
+                  <li class="menu-title">
+                    <a href="#">More Operations</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/prshistory/" target="_blank">PRS DB</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/production_control/production_orders" target="_blank">Orders to be Shipped</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutters" target="_blank">Cutter - Aluminum</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutterssteel" target="_blank">Cutters - Steel</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/cutters-capc" target="_blank">Cutters - Cap C</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/hosecutters" target="_blank">Hose Cutter</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/steelcrimpers1" target="_blank">Crimpers - Steel 3/8"</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/steelcrimpers2" target="_blank">Crimpers - Steel 1/2" 5/8"</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/rivianhosecutter" target="_blank">Rivian - Hose Cutter</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/allwork/tv/riviancrimperskanban" target="_blank">Rivian - Crimpers</a>
+                  </li>
                   
+  
+                  <!-- <li class="panel-list-item">
+                    <a href="#">
+                      <img src="./assets/images/electronics-banner-2.jpg" alt="mouse collection" width="250" height="119">
+                    </a>
+                  </li> -->
+  
+                </ul> 
+  
+                 <ul class="dropdown-panel-list">
+  
+                  <li class="menu-title">
+                    <a href="#">Quality</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/car/" target="_blank">CAR Database</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/lpa" target="_blank">Layered Process Audit</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/NCRDatabase/" target="_blank">NCR/RMA Database</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/QAS/" target="_blank">Quality Alert DB</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/EpcContainment/" target="_blank">EPC Containment Log DB</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/SQPR/" target="_blank">SQRP DB</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/ebinder_admin" target="_blank">eBinder Admin</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/supplierQuality/" target="_blank">Supplier Quality Database</a>
+                  </li>
+  
+                </ul>
+  
+                 <ul class="dropdown-panel-list">
+  
+                  <li class="menu-title">
+                    <a href="#">HR</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/jobrotation" target="_blank">Job Rotation</a>
+                  </li>
                   
-                  <ul class = "dropdown-list">
-                  <li class="dropdown-item">
-                    <a href="http://www.autonews.com" target="_blank">Automotive News</a>
+                  <li class="panel-list-item">
+                    <a href="https://ignition.bend-all.com:8043/data/perspective/client/temperature_sensors/" target="_blank">Temperature Sensor</a>
                   </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://gmsupplypower.covisint.com/web/portal/home" target="_blank">GM Supply Power</a>
+  
+                  <li class="menu-title" style="margin-top: 10px;">
+                    <a href="#">Material</a>
                   </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://www.opentext.com/products/business-network-cloud" target="_blank">Covisint Connect</a>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/hotmaterials/" target="_blank">List of High Demand Materials</a>
                   </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://suppliers.valeo.com/suppliers/" target="_blank">Valeo Supplier Portal</a>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/LogisticsPortal" target="_blank">Logistics Portal</a>
                   </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://supplier.cami.ca" target="_blank">CAMI Supplier Portal</a>
-                  </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://fcagroup.esupplierconnect.com/irj/portal/supplier_connect/global?guest_user=Guest_FI&fullscroll=true" target="_blank">FCA</a>
-                  </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://supplier.densosystems.com/Account/Login?ReturnUrl=%2F" target="_blank">Denso</a>
-                  </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://www.magna.com/company/suppliers" target="_blank">Magna</a>
-                  </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://supplier-portal.daimler.com/portal/en" target="_blank">Daimler</a>
-                  </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://www.brose.com/de-en/purchasing/supplier-portal-program/supplier-portal.html" target="_blank">Brose</a>
-                  </li>
-      
-                  <li class="dropdown-item">
-                    <a href="https://outlook.office.com/mail/" target="_blank">Bend All Email</a>
-                  </li>
-      
+  
                   
-      
-      
+  
+                  <li class="menu-title" style="margin-top: 10px;">
+                    <a href="#">Maintenance</a>
+                  </li>                
+                  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/Predictive/">Predictive Maintenance</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/maintenanceandworkorder/">Maintenance & Work Orders DB</a>
+                  </li>
+  
+                  <li class="panel-list-item">
+                    <a href="http://tuxania/pm/">PM System</a>
+                  </li>
+  
+                  <!--<li class="panel-list-item">
+                    <a href="#"></a>
+                  </li>-->
+  
+                </ul>
+  
+               
+  
+              </div>
+            </li> 
+  
+            <li class="menu-category">
+              <a href="Quality.html" class="menu-title" id="hrLink">Quality</a>
+  
+              <ul class="dropdown-list">
+  
+                <li class="dropdown-item">
+                  <a href="https://ignition.bend-all.com:8043/data/perspective/client/ebinder_admin" target="_blank">eBinder Admin</a>
                 </li>
-      
+  
+                <li class="dropdown-item">
+                  <a href="http://tuxania/supplierQuality/" target="_blank">Supplier Quality Database</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="https://ignition.bend-all.com:8043/data/perspective/client/lpa" target="_blank">Layered Process Audit</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="http://tuxania/QAS/" target="_blank">Quality Alert DB</a>
+                </li>
+                
+                 <li class="dropdown-item">
+                  <a href="http://tuxania/SQPR/" target="_blank">SQRP DB</a>
+                 </li>
+  
               </ul>
-      
-            </div>
-      
-          </nav>
+            </li>
+  
+  
+            <li class="menu-category">
+              <a href="HR.html" class="menu-title" id="hrLink" >H.R.</a>
+  
+              <ul class="dropdown-list">
+  
+                <li class="dropdown-item">
+                  <a href="http://tuxania/hr_report_incident/CreateIncident.aspx" target="_blank">Report Incident</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Emergency Contact List</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="https://www.canada.ca/en/employment-social-development.html" target="_blank" >Employement Insurance</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">H&S Policy</a>
+                </li>
+  
+              </ul>
+            </li>
+  
+            <!-- <li class="menu-category">
+              <a href="#" class="menu-title">I.T.</a>
+  
+              <ul class="dropdown-list">
+  
+                <li class="dropdown-item">
+                  <a href="#">IT Ticket System Form</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+              </ul>
+            </li> -->
+  
+            <li class="menu-category">
+              <a href="Operations.html" class="menu-title">Operations</a>
+  
+              <ul class="dropdown-list">
+  
+                <li class="dropdown-item">
+                  <a href="http://tuxania/OperationsNew.aspx" target="_blank">Machine Location</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Contingency Plan</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="https://ignition.bend-all.com:8043/idp/AD/authn/login?app=perspective&token=_nVBhoL-wXJ8LhWHFltLvQHY28GPHAiTWfu8sggNsGg&response_type=code&client_id=ignition&redirect_uri=%2Fdata%2Ffederate%2Fcallback%2Fignition&scope=openid&state=eyJraWQiOiJrMSIsImFsZyI6IkhTMjU2In0.eyJqdGkiOiJzVWFoMWZGS1FZc25EWGdDaFVza0FKbzBvcEw5OEp4cEtsd2REb3VsWjRRIiwidXJpIjoiL2RhdGEvcGVyc3BlY3RpdmUvY2xpZW50L2ViaW5kZXJfYWRtaW4ifQ.qhecTDfCUsjP8lbFzoQ1fZfXQ8YUo_Zgz-D8VF1VtKE&nonce=OzcurkX_jVCapBH_astE5N6RegWA-IRNGYDMO3dRAU8&prompt=login&max_age=1" target="_blank">eBinder Admin</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="http://tuxania/Purchasingdashboard.aspx" target="_blank">Purchasing Dashboard</a>
+                </li>
+  
+              </ul>
+            </li>
+  
+            <!-- <li class="menu-category">
+              <a href="#" class="menu-title">Quality</a>
+  
+              <ul class="dropdown-list">
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+                <li class="dropdown-item">
+                  <a href="#">Blah</a>
+                </li>
+  
+              </ul>
+            </li> -->
+  
+            <!-- <li class="menu-category">
+                          <a href="Forms.html" class="menu-title">Forms</a>
+                        </li>-->
+  
+            <li class="menu-category">
+              <a href="#" class="menu-title">Automotive Links</a>
+              
+              
+              <ul class = "dropdown-list">
+              <li class="dropdown-item">
+                <a href="http://www.autonews.com" target="_blank">Automotive News</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://gmsupplypower.covisint.com/web/portal/home" target="_blank">GM Supply Power</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://www.opentext.com/products/business-network-cloud" target="_blank">Covisint Connect</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://suppliers.valeo.com/suppliers/" target="_blank">Valeo Supplier Portal</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://supplier.cami.ca" target="_blank">CAMI Supplier Portal</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://fcagroup.esupplierconnect.com/irj/portal/supplier_connect/global?guest_user=Guest_FI&fullscroll=true" target="_blank">FCA</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://supplier.densosystems.com/Account/Login?ReturnUrl=%2F" target="_blank">Denso</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://www.magna.com/company/suppliers" target="_blank">Magna</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://supplier-portal.daimler.com/portal/en" target="_blank">Daimler</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://www.brose.com/de-en/purchasing/supplier-portal-program/supplier-portal.html" target="_blank">Brose</a>
+              </li>
+  
+              <li class="dropdown-item">
+                <a href="https://outlook.office.com/mail/" target="_blank">Bend All Email</a>
+              </li>
+  
+              
+  
+  
+            </li>
+  
+          </ul>
+  
+        </div>
+  
+      </nav>
   </header>
-
-
 
 
 
@@ -542,222 +553,316 @@
       - BANNER
     -->
 
-
-
-    <div class="banner">
-
-        <div class="container">
-  
-          <div class="slider-container has-scrollbar">
-  
-            <div class="slider-item">
-  
-              <img src="../Images/banner/head.png" alt="Automotive Innovations" class="banner-img">
-  
-              <div class="banner-content">
-  
-                <p class="banner-subtitle">Automotive Innovations</p>
-  
-                <h2 class="banner-title">New discoveries in the field of Automotive</h2>
-  
-                <!-- <p class="banner-text">
-                  starting at &dollar; <b>20</b>.00
-                </p> -->
-  
-                <a href="#" class="banner-btn">Read More</a>
-  
-              </div>
-  
-            </div>
-  
-            <div class="slider-item">
-  
-              <img src="../Images/banner/grass.jpg" alt="modern sunglasses" class="banner-img">
-  
-              <div class="banner-content">
-  
-                <p class="banner-subtitle">Mushrooms Everywhere</p>
-  
-                <h2 class="banner-title">I want Mushrooms</h2>
-  
-                <!-- <p class="banner-text">
-                  starting at &dollar; <b>15</b>.00
-                </p> -->
-  
-                <a href="#" class="banner-btn">Read More</a>
-  
-              </div>
-  
-            </div>
-  
-            <div class="slider-item">
-  
-              <img src="../Images/banner/sky.jpg" alt="new fashion summer sale" class="banner-img">
-  
-              <div class="banner-content">
-  
-                <p class="banner-subtitle">Beach</p>
-  
-                <h2 class="banner-title">Fun Fact: White sand beaches come from parrotfish doodoo.</h2>
-  
-                
-                <a href="#" class="banner-btn">Read More</a>
-  
-              </div>
-  
-            </div>
-  
-          </div>
-  
+<div class="banner">
+      <div class="container">
+        <div class="slider-container has-scrollbar" id="banner-container">
+          <!-- Dynamic banners will be inserted here -->
         </div>
-  
+        <!-- Button to open the modal -->
+        <button id="addBannerBtn" class="add-banner-btn" style="display: none;" onclick="openModalBanner()">+</button>
       </div>
-    </nav>
-    </header>
+    </div>
+    
+    <div id="addBannerModal" class="modal">
+      <div class="modal-content">
+        <h2 style="margin-top:-65%">Add New Banner</h2>
+        <form id="banner-form">
+          <div class="form-group">
+            <label for="banner-title">Title:</label>
+            <input type="text" id="banner-title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="banner-subtitle">Subtitle:</label>
+            <input type="text" id="banner-subtitle" name="subtitle" required>
+          </div>
+          <div class="form-group">
+            <label for="banner-image">Image URL:</label>
+            <input type="text" id="banner-image" name="image" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="modal-submit-button">Add Banner</button>
+            <button type="button" class="modal-close-button" onclick="closeModalBanner()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div id="editBannerModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <h2 style="margin-top:-65%">Edit Banner</h2>
+        <form id="edit-banner-form">
+          <div class="form-group">
+            <label for="edit-banner-title">Title:</label>
+            <input type="text" id="edit-banner-title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-banner-subtitle">Subtitle:</label>
+            <input type="text" id="edit-banner-subtitle" name="subtitle" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-banner-image">Image URL:</label>
+            <input type="text" id="edit-banner-image" name="image" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="edit-modal-submit-button">Save Changes</button>
+            <button type="button" class="edit-modal-delete-button" onclick="deleteBanner()">Delete Banner</button>
+            <button type="button" class="edit-modal-close-button" onclick="closeEditModalBanner()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    
+   
+
+  
+      
+      
+      
+      <!--
+          <div class="banner">
+      
+              <div class="container">
+                <div class="slider-container has-scrollbar">
+        
+                  <div class="slider-item">
+        
+                    <img src="../Images/banner/head.png" alt="Automotive Innovations" class="banner-img">
+        
+                    <div class="banner-content">
+        
+                      <p class="banner-subtitle">Automotive Innovations</p>
+        
+                      <h2 class="banner-title">New discoveries in the field of Automotive</h2>
+        
+                      <!-- <p class="banner-text">
+                        starting at &dollar; <b>20</b>.00
+                      </p> -->
+        
+               <!--       <a href="#" class="banner-btn">Read More</a>
+        
+                    </div>
+        
+                  </div>
+        
+                  <div class="slider-item">
+        
+                    <img src="../Images/banner/grass.jpg" alt="modern sunglasses" class="banner-img">
+        
+                    <div class="banner-content">
+        
+                      <p class="banner-subtitle">Mushrooms Everywhere</p>
+        
+                      <h2 class="banner-title">I want Mushrooms</h2>
+        
+                      <!-- <p class="banner-text">
+                        starting at &dollar; <b>15</b>.00
+                      </p> -->
+        <!--
+                      <a href="#" class="banner-btn">Read More</a>
+        
+                    </div>
+        
+                  </div>
+        
+                  <div class="slider-item">
+        
+                    <img src="../Images/banner/sky.jpg" alt="new fashion summer sale" class="banner-img">
+        
+                    <div class="banner-content">
+        
+                      <p class="banner-subtitle">Beach</p>
+        
+                      <h2 class="banner-title">Fun Fact: White sand beaches come from parrotfish doodoo.</h2>
+        
+                      
+                      <a href="#" class="banner-btn">Read More</a>
+        
+                    </div>
+        
+                  </div>
+        
+                </div>-->
+      
+      <!-- TO ADD NEW BANNER-->
+     <!-- Modal for adding a banner -->
+    <!--  <div id="addBannerModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModalBanner()">&times;</span>
+          <h2>Add New Banner</h2>
+          <form id="banner-form">
+            <label for="banner-title">Title</label>
+            <input type="text" id="banner-title" name="title" required>
+            
+            <label for="banner-subtitle">Subtitle</label>
+            <input type="text" id="banner-subtitle" name="subtitle" required>
+            
+            <label for="banner-detail">Detail</label>
+            <textarea id="banner-detail" name="detail" required></textarea>
+            
+            <label for="banner-image">Image URL</label>
+            <input type="text" id="banner-image" name="image" required>
+            
+            <button type="submit">Add Banner</button>
+          </form>
+        </div>
+      </div>
+-->
+
+
     <main>
 
-        <!--
-      - PRODUCT
-    -->
-
-    <div class="product-container">
-
-        <div class="container">
-  
-  
-          <!--
-            - SIDEBAR
-          -->
-          <div class="sidebar-container">
-          <div class="sidebar  has-scrollbar" data-mobile-menu>
-  
-            <div class="sidebar-category">
-  
-                <!-- Favorites Bar-->
-  
-                  <div class="sidebar-top" >
-                    <h2 class="sidebar-title">Favorite Links</h2>
-      
-                    <button class="sidebar-close-btn" data-mobile-menu-close-btn>
-                      <ion-icon name="close-outline"></ion-icon>
-                    </button>
-                  </div>
-                  <ul id="favorite-links-list" class="sidebar-menu-category-list">
-    
-    
-                    <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-        
-                      <p class="menu-title">Disney</p>
-                    </div>
-  
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
+   <!--
+         - PRODUCT
+       -->
    
-                      <p class="menu-title">Minecraft</p>
-                    </div>
-  
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-  
-  
-                      <p class="menu-title">Elden Rings</p>
-                    </div>
-  
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-                  </ul>
-                </li>
-              </ul>      
-              <div class="add-event">
-                <button class="add-event-button-blue" onclick="openModal()">+</button>
-            </div>     
-  
-  
-            <div class="sidebar-top">
-              <h2 class="sidebar-title" style="margin-top: 50px;">Quick Links</h2>
-  
-              <button class="sidebar-close-btn" data-mobile-menu-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-            </div>
-  
-            <ul class="sidebar-menu-category-list">
-  
-  
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/dress.svg" alt="clothes" width="20" height="20"
-                      class="menu-title-img">
-  -->
-                    <p class="menu-title">CAR DATABASE</p>
-                  </div>
-  
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
-                      height="20"> -->
-  
-                    <p class="menu-title">CI Tracker</p>
-                  </div>
-  
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
-                      height="20"> -->
-  
-                    <p class="menu-title">IT Ticket Tracker</p>
-                  </div>
-  
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
-                      height="20"> -->
-  
-                    <p class="menu-title">Logistics Portal</p>
-                  </div>
-  
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
-                      height="20"> -->
-  
-                    <p class="menu-title">Predictive Maintain</p>
-                  </div>
-  
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
-                      height="20"> -->
-  
-                    <p class="menu-title">Machine Training</p>
-                  </div>
-  
-                <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                  <div class="menu-title-flex">
-                    <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
-  
-                    <p class="menu-title">PM Systems</p>
-                  </div>
-  
-                </ul>
-  
-              </li>
-  
-            </ul>
-            
-          </div>
-      </div>
-  </div>
+       <div class="product-container">
+   
+           <div class="container">
+     
+     
+             <!--
+               - SIDEBAR
+             -->
+             <div class="sidebar-container">
+             <div class="sidebar  has-scrollbar" data-mobile-menu>
+     
+               <div class="sidebar-category">
+     
+                 <!-- Favorites Bar-->
+   
+                   <div class="sidebar-top" >
+                     <h2 class="sidebar-title">Favorite Links</h2>
+       
+                     <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                       <ion-icon name="close-outline"></ion-icon>
+                     </button>
+                   </div>
+                   <ul id="favorite-links-list" class="sidebar-menu-category-list">
+     
+     
+                 <!--    <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                     <div class="menu-title-flex">
+         
+                       <p class="menu-title">Disney</p>
+                     </div>
+   
+                   <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                     <div class="menu-title-flex">
+    
+                       <p class="menu-title">Minecraft</p>
+                     </div>
+   
+                   <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                     <div class="menu-title-flex">
+   
+   
+                       <p class="menu-title">Elden Rings</p>
+                     </div>
+   
+                   <button class="sidebar-accordion-menu" data-accordion-btn>-->
+                   </ul>
+                 </li>
+               </ul>      
+               <div class="add-event">
+                 <button class="add-event-button-blue" onclick="openModal()">+</button>
+             </div>     
+   
+   
+             <div class="sidebar-top">
+               <h2 class="sidebar-title" style="margin-top: 50px;">Quick Links</h2>
+   
+               <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                 <ion-icon name="close-outline"></ion-icon>
+               </button>
+             </div>
+   
+             <ul class="sidebar-menu-category-list">
+   
+   
+                   <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+       
+                    <a href="http://tuxania/car/" target="_blank" class="menu-title-link">
+                               <p class="menu-title">CAR DATABASE</p>
+                           </a>
+                   </div>
+   
+                 <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+                     <!-- <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
+                       height="20"> -->
+                   <a href="http://tuxania/citracker/" target="_blank" class="menu-title-link">
+                     <p class="menu-title">CI Tracker</p>
+                     </a>
+                   </div>
+   
+                 <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+                     <!-- <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
+                       height="20"> -->
+                      <a href="http://tuxania/itticket.html" target="_blank" class="menu-title-link">
+                     <p class="menu-title">IT Ticket Tracker</p>
+                     </a>
+                   </div>
+   
+                 <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+                     <!-- <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
+                       height="20"> -->
+                       <a href="http://tuxania/LogisticsPortal/" target="_blank" class="menu-title-link">
+                     <p class="menu-title">Logistics Portal</p>
+                     </a>
+                   </div>
+   
+                 <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+                     <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
+                       height="20"> -->
+                       <a href="http://tuxania/Predictive/" target="_blank" class="menu-title-link">
+                     <p class="menu-title">Predictive Maintain</p>
+                     </a>
+                   </div>
+   
+                 <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+                     <!-- <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
+                       height="20"> -->
+                       <a href="https://ignition.bend-all.com:8043/data/perspective/client/machine_training_database/checklist" target="_blank" class="menu-title-link">
+                     <p class="menu-title">Machine Training</p>
+                     </a>
+                   </div>
+   
+                 <button class="sidebar-accordion-menu" data-accordion-btn>
+   
+                   <div class="menu-title-flex">
+                     <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
+                      <a href="http://tuxania/pm/" target="_blank" class="menu-title-link">
+                     <p class="menu-title">PM Systems</p>
+                     </a>
+                   </div>
+   
+                 </ul>
+   
+               </li>
+   
+             </ul>
+             
+           </div>
+       </div>
+   </div>
 
 
 <!-- Modal for adding new favorite link -->
@@ -849,7 +954,7 @@
           <!--
             - SIDEBAR
           -->
-          <div class="sidebar-container" style="margin-left: 130%;" >
+          <div class="sidebar-container" style="margin-left: 280%;" >
           <div class="sidebar  has-scrollbar" data-mobile-menu style="width: 160%;">
   
             <div class="sidebar-category">
@@ -870,77 +975,21 @@
                     <div class="menu-title-flex">
                       <!-- <img src="./assets/images/icons/dress.svg" alt="clothes" width="20" height="20"
                         class="menu-title-img">
-   -->
-                      <p class="menu-title">Report Incident</p>
+   -->                <a href="http://tuxania/hr_report_incident/CreateIncident.aspx" target="_blank" class="menu-title-link">
+                               <p class="menu-title">Report Incident</p>
+                      </a>
                     </div>
 
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">Emergency Contact List</p>
-                    </div>
+                 
 
                   <button class="sidebar-accordion-menu" data-accordion-btn>
   
                     <div class="menu-title-flex">
                       <!-- <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
                         height="20"> -->
-  
-                      <p class="menu-title">MSDS Online</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">Enviornmental Policies</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">H&S Policy</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
-                        height="20"> -->
-  
-                      <p class="menu-title">EMS aspects/impact</p>
-                    </div>
-
-                  <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                      <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
-  
-                      <p class="menu-title">EMS Objectives & Targets</p>
-                    </div>
-
-                    <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                        <div class="menu-title-flex">
-                          <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
-      
-                        <p class="menu-title">EMS Manual</p>
-                        </div>
-
-                    <button class="sidebar-accordion-menu" data-accordion-btn>
-  
-                    <div class="menu-title-flex">
-                              <!-- <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20"> -->
-          
-                        <p class="menu-title">Employee HandBook</p>
+                      <a href="https://chemmanagement.ehs.com/9/d117eb5f-2ef9-49d5-9a8f-2594abc55235/ebinder" target="_blank" class="menu-title-link">
+                            <p class="menu-title">MSDS Online</p>
+                      </a>
                     </div>
 
                   </ul>
@@ -972,44 +1021,49 @@
     
     
      <!-- Footer Section -->
-     <footer>
-        <div class="footer-container">
-            <div class="footer-left">
-                <!-- <h1>HDT Automotive</h1> -->
-                <div class="contact-info">
-                  <img src="../Images/hdt-logo.png" alt="Hdt Logo" width="auto" height="150" class="footer-img">
-  
-                    <p><strong>Contact us</strong></p>
-                    <p><strong>Address</strong><br>575 Waydom Dr</p>
-                    <p><strong>E-mail</strong><br><a href="mailto:Example@gmail.com">Example@gmail.com</a></p>
-                    <p><strong>Phone</strong><br>+1 (519) 623-2002</p>
-                </div>
-                <div class="follow-us">
-                    <p><strong>Follow us</strong></p>
-                    <a href="#"><img src="../Images/socials/linkedin.png" alt="LinkedIn"></a>
-                    <a href="#"><img src="../Images/socials/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="../Images/socials/instagram.png" alt="Instagram"></a>
-                </div>
-            </div>
-            <div class="footer-right">
-                <form action="#" method="POST">
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="email" placeholder="E-Mail">
-                    <textarea name="message" placeholder="How can we help?"></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </footer>  
-    
+  <footer>
+      <div class="footer-container">
+          <div class="footer-left">
+              <img src="../Images/hdt-logo.png" alt="Hdt Logo" class="footer-img">
+              <div class="contact-info">
+                  <p><strong>Contact us</strong></p>
+                  <p><strong>Address</strong><br>575 Waydom Dr</p>
+                  <p><strong>E-mail</strong><br><a href="mailto:BendAll@hdt-ca.com">BendAll@hdt-ca.com</a></p>
+                  <p><strong>Phone</strong><br>+1 (519) 623-2002</p>
+              </div>
+              <div class="follow-us">
+                  <p><strong>Follow us</strong></p>
+                  <div class="social-icons">
+                      <a href="https://www.linkedin.com/company/bend-all-automotive-ulc/?originalSubdomain=ca" target="_blank"><img src="../Images/socials/linkedin.png" alt="LinkedIn"></a>
+                      <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwip2ZeqqvmGAxUzgv0HHSePBEAQFnoECBEQAQ&url=https%3A%2F%2Fm.facebook.com%2Fprofile.php%3Fid%3D559885350736093&usg=AOvVaw3068nUf7xucXJrGuLRXukF&opi=89978449" target="_blank"><img src="../Images/socials/facebook.png" alt="Facebook"></a>
+                      <a href="https://www.instagram.com/explore/locations/1708845916040099/bend-all-automotive-inc/" target="_blank"><img src="../Images/socials/instagram.png" alt="Instagram"></a>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-right">
+              <form id="contactForm" action="#" method="POST">
+                  <input type="text" name="name" placeholder="Name" id="name">
+                  <input type="email" name="email" placeholder="E-Mail" id="email">
+                  <select name="category" id="category">
+                      <option value="Feedback">Feedback</option>
+                      <option value="Request">Request</option>
+                      <option value="Suggestion">Suggestion</option>
+                  </select>
+                  <textarea name="message" placeholder="How can we help?" id="message"></textarea>
+                  <button type="submit">Send Message</button>
+              </form>
+          </div>
+      </div>
+  </footer>
     
     
 </body>
 <script src="../javascript/script.js"></script>
-
-
 <script src="../javascript/favorites.js"></script>
 <script src="../javascript/events.js"></script>
+<script src="../javascript/sendEmail.js"></script>
+<script src="../javascript/search_filter.js"></script>
+<script src="../javascript/banner.js"></script>
 
 <!--
     - ionicon link

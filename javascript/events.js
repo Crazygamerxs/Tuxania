@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var closeModalBtn = document.getElementById('close-event-modal');
     var authPopup = document.getElementById('auth-popup');
 
-    console.log("DOM fully loaded and parsed.");
+    //console.log("DOM fully loaded and parsed.");
 
     function showAuthPopup(message) {
         authPopup.textContent = message;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     btn.onclick = async function() {
         console.log("Add Event button clicked.");
         try {
-            const response = await fetch('/system/webdev/Tuxania/Python_Scripts/authentication_events', {
+            const response = await fetch('/system/webdev/Tuxania/Python_Scripts/events/authentication_events', {
                 method: 'GET'
             });
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             } else if (response.status === 401) {
                 alert('Authorization failed. Please check your credentials and try again.');
             } else if (response.status === 403) {
-                showAuthPopup('You are not authorized to add events');
+                showAuthPopup('You are not an admin');
             } else {
                 console.error('Failed to trigger Python resource with status:', response.status);
             }
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var description = document.getElementById('event-description').value;
     
         try {
-            await fetch(`/system/webdev/Tuxania/Python_Scripts/save_event?date=${encodeURIComponent(date)}&description=${encodeURIComponent(description)}`, {
+            await fetch(`/system/webdev/Tuxania/Python_Scripts/events/save_event?date=${encodeURIComponent(date)}&description=${encodeURIComponent(description)}`, {
                 method: 'POST'
             });
     
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     async function deleteEvent(eventId) {
         try {
-            const response = await fetch(`/system/webdev/Tuxania/Python_Scripts/delete_event?id=${eventId}`, {
+            const response = await fetch(`/system/webdev/Tuxania/Python_Scripts/events/delete_event?id=${eventId}`, {
                 method: 'DELETE'
             });
 
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    fetch('/system/webdev/Tuxania/Python_Scripts/get_event')
+    fetch('/system/webdev/Tuxania/Python_Scripts/events/get_event')
         .then(response => response.json())
         .then(data => {
             data.forEach(event => {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 window.deleteEvent = async function(eventId) {
     try {
-        const url = `/system/webdev/Tuxania/Python_Scripts/delete_event?id=${eventId}`;
+        const url = `/system/webdev/Tuxania/Python_Scripts/events/delete_event?id=${eventId}`;
         console.log("Sending DELETE request to URL:", url);
         
         await fetch(url, {
@@ -155,5 +155,61 @@ window.deleteEvent = async function(eventId) {
         console.error('Error:', error);
     }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addEventBtn = document.getElementById('addEventBtn');
+  
+  // Check authentication status from sessionStorage
+  const authenticated = sessionStorage.getItem('authenticated') === 'true';
+  
+  if (authenticated) {
+    addEventBtn.style.display = 'block';
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.querySelector('.login-btn');
+  const authPopup = document.getElementById('auth-popup');
+  let loginAttempts = 0;
+
+  loginBtn.addEventListener('click', async () => {
+    try {
+      const response = await fetch('/system/webdev/Tuxania/Python_Scripts/events/authentication_events', {
+        method: 'GET'
+      });
+
+      if (response.ok) {
+                      console.log("Authentication successful.");
+                      authenticated = true; // Update authentication status
+                      sessionStorage.setItem('authenticated', 'true'); // Store authentication status in sessionStorage
+                      modal.style.display = 'block';
+                      console.log(authenticated);
+                  } else if (response.status === 401) {
+                      alert('Authorization failed. Please check your credentials and try again.');
+                  } else if (response.status === 403) {
+                      showAuthPopup('You are not an admin');
+                  } else {
+                      console.error('Failed to trigger Python resource with status:', response.status);
+                  }
+              } catch (error) {
+                  console.error('Error:', error);
+              }
+  });
+
+  function showAuthPopup(message) {
+    authPopup.textContent = message;
+    authPopup.style.display = 'block';
+    setTimeout(() => {
+      authPopup.style.display = 'none';
+    }, 3000); // Hide after 3 seconds
+  }
+});
+
+
+
+
+
+
+
 
 

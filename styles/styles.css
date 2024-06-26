@@ -671,219 +671,351 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
   border-radius: var(--border-radius-md);
 }
 
-
-
+/* Create-outline icon positioning */
+  .header-main ion-icon[name="person-outline"] {
+    position: absolute;
+    top: 9%; /* Align with add-banner-btn */
+   // left: 50px; /* Adjust position to be to the right of add-banner-btn */
+    font-size: 34px; /* Match size with add-banner-btn */
+    color: var(--errie black);
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other content */
+    margin-left:-38px;
+  }
 
 
 /*-----------------------------------*\
-  #BANNER
-\*-----------------------------------*/
-.banner {
-  margin: 30px 0;
-  position: relative; /* Needed for absolute positioning inside */
-}
-
-.slider-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-radius: var(--border-radius-md);
-  overflow: hidden; /* Removed 'auto' */
-  scroll-snap-type: x mandatory; /* Horizontal scrolling */
-}
-
-.slider-item {
-  min-width: 100%;
-  max-height: 450px;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--border-radius-md);
-  overflow: hidden;
-  scroll-snap-align: start;
-    position: relative; /* Ensure each item contains its content */
-
-}
-
-.banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.banner-content {
-  background: hsla(0, 0%, 100%, 0.8);
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  right: 25px;
-  padding: 20px 25px;
-  border-radius: var(--border-radius-md);
-}
-
-.banner-subtitle {
-  color: var(--salmon-pink);
-  font-size: var(--fs-7);
-  font-weight: var(--weight-500);
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-.banner-title {
-  color: var(--eerie-black);
-  font-size: var(--fs-1);
-  text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-.banner-text {
-  display: none;
-}
-
-.banner-btn {
- background: var(--salmon-pink);
-    color: var(--white);
-    width: max-content;
-    font-size: var(--fs-11);
-    font-weight: var(--weight-600);
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: var(--border-radius-sm);
-    transition: var(--transition-timing);
-}
-
-.banner-btn:hover {
-  background: var(--eerie-black);
-}
-.add-banner-btn {
-  position: absolute;
-  top: 85%; /* Adjust top position as per your design */
-  right: 30px; /* Adjust right position as per your design */
-  background-color: var(--salmon-pink);
-  color: var(--white);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1000; /* Ensure it's above other content */
-}
-
-.add-banner-btn:hover{
-background-color: #000000;
-    color: white;
-}
-.banner .container {
-  position: relative; /* Ensure relative positioning for absolute children */
-}
-
-/* Modal for adding a banner */
-#addBannerModal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 200%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px; /* Adjust if necessary */
-}
-
-#addBannerModal .modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Adjust width as needed */
-  max-width: 600px; /* Optional: Set max-width for responsiveness */
-  border-radius: 5px;
-}
-
-#addBannerModal .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-#addBannerModal .close:hover,
-#addBannerModal .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#banner-form {
-  max-width: 100%;
-  margin-top: 20%;
-  margin-left: -40%;
-
-}
-
-#banner-form h2 {
-  text-align: center;
-  margin-top: -20%;
-}
-
-#banner-form .form-group {
-  margin-bottom: 15px;
-}
-
-#banner-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-#banner-form input[type="text"],
-#banner-form textarea {
-  width: calc(200% - 12px);
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box;
-}
-
-#banner-form textarea {
-  resize: vertical; /* Allow vertical resizing of textarea */
-}
-
-#banner-form .form-group:last-child {
-  text-align: center;
-}
-
-#banner-form button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.modal-submit-button {
-  background-color: #28a745; /* Green submit button */
-  color: #fff;
-  border: none;
-}
-
-.modal-submit-button:hover {
-  background-color: #218838; /* Darker green on hover */
-}
-
-.modal-close-button {
-  background-color: #dc3545; /* Red close button */
-  color: #fff;
-  border: none;
-  margin-left:70%;
-  margin-top: -20%;
-}
-
-.modal-close-button:hover {
-  background-color: #c82333; /* Darker red on hover */
-}
-
+      #BANNER
+    \*-----------------------------------*/
+    .banner {
+      margin: 30px 0;
+      position: relative; /* Needed for absolute positioning inside */
+    }
+    
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: var(--border-radius-md);
+      overflow: hidden; /* Removed 'auto' */
+      scroll-snap-type: x mandatory; /* Horizontal scrolling */
+    }
+    
+    .slider-item {
+      min-width: 100%;
+      max-height: 450px;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      scroll-snap-align: start;
+      position: relative; /* Ensure each item contains its content */
+    }
+    
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .banner-content {
+      background: hsla(0, 0%, 100%, 0.8);
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+      padding: 20px 25px;
+      border-radius: var(--border-radius-md);
+    }
+    
+    .banner-subtitle {
+      color: var(--salmon-pink);
+      font-size: var(--fs-7);
+      font-weight: var(--weight-500);
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    
+    .banner-title {
+      color: var(--eerie-black);
+      font-size: var(--fs-1);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    
+    .banner-text {
+      display: none;
+    }
+    
+    .banner-btn {
+      background: var(--salmon-pink);
+      color: var(--white);
+      width: max-content;
+      font-size: var(--fs-11);
+      font-weight: var(--weight-600);
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--border-radius-sm);
+      transition: var(--transition-timing);
+    }
+    
+    .banner-btn:hover {
+      background: var(--eerie-black);
+    }
+    
+    .add-banner-btn {
+      position: absolute;
+      top: 85%; /* Adjust top position as per your design */
+      right: 70px; /* Adjust right position as per your design */
+      background-color: var(--salmon-pink);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+    
+    .add-banner-btn:hover {
+      background-color: #000000;
+      color: white;
+    }
+    
+    .banner .container {
+      position: relative; /* Ensure relative positioning for absolute children */
+    }
+    
+    /* Create-outline icon positioning */
+    .banner ion-icon[name="create-outline"] {
+      position: absolute;
+      top: 86%; /* Align with add-banner-btn */
+      right: 10px; /* Adjust position to be to the right of add-banner-btn */
+      font-size: 34px; /* Match size with add-banner-btn */
+      color: var(--white);
+      cursor: pointer;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+    
+    /* Modal for adding a banner */
+    #addBannerModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 150%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px; /* Adjust if necessary */
+    }
+    
+    #addBannerModal .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%; /* Adjust width as needed */
+      max-width: 600px; /* Optional: Set max-width for responsiveness */
+      border-radius: 5px;
+    }
+    
+    #addBannerModal .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    #addBannerModal .close:hover,
+    #addBannerModal .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    #banner-form {
+      max-width: 100%;
+      margin-top: 10%;
+      margin-left: -40%;
+    }
+    
+    #banner-form h2 {
+      text-align: center;
+    }
+    
+    #banner-form .form-group {
+      margin-bottom: 15px;
+    }
+    
+    #banner-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    #banner-form input[type="text"],
+    #banner-form textarea {
+      width: calc(200% - 12px);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    
+    #banner-form textarea {
+      resize: vertical; /* Allow vertical resizing of textarea */
+    }
+    
+    #banner-form .form-group:last-child {
+      text-align: center;
+    }
+    
+    #banner-form button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .modal-submit-button {
+      background-color: #28a745; /* Green submit button */
+      color: #fff;
+      border: none;
+    }
+    
+    .modal-submit-button:hover {
+      background-color: #218838; /* Darker green on hover */
+    }
+    
+    .modal-close-button {
+      background-color: #dc3545; /* Red close button */
+      color: #fff;
+      border: none;
+      margin-left: 70%;
+      margin-top: -20%;
+    }
+    
+    .modal-close-button:hover {
+      background-color: #c82333; /* Darker red on hover */
+    }
+    
+    /* Modal for editing a banner */
+    #editBannerModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 130%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px; /* Adjust if necessary */
+    }
+    
+    #editBannerModal .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%; /* Adjust width as needed */
+      max-width: 600px; /* Optional: Set max-width for responsiveness */
+      border-radius: 5px;
+    }
+    
+    #editBannerModal .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    #editBannerModal .close:hover,
+    #editBannerModal .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    #edit-banner-form {
+      max-width: 100%;
+      margin-top: 10%;
+      margin-left: -27%;
+    }
+    
+    #edit-banner-form h2 {
+      text-align: center;
+    }
+    
+    #edit-banner-form .form-group {
+      margin-bottom: 15px;
+    }
+    
+    #edit-banner-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    #edit-banner-form input[type="text"],
+    #edit-banner-form textarea {
+      width: calc(200% - 12px);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    
+    #edit-banner-form textarea {
+      resize: vertical; /* Allow vertical resizing of textarea */
+    }
+    
+    #edit-banner-form .form-group:last-child {
+      text-align: center;
+    }
+    
+    #edit-banner-form button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .edit-modal-delete-button {
+      background-color: #292929; 
+      color: #fff;
+      border: none;
+      margin-left: 200%;
+      margin-top: -20%;
+      width: 50%;
+    }
+     .edit-modal-delete-button:hover {
+       background-color: #000000; 
+     }
+     .edit-modal-submit-button {
+       background-color: #28a745; 
+       color: #fff;
+       border: none;
+      }
+    
+     .edit-modal-submit-button:hover {
+       background-color: #218838; 
+     }
+         
+     .edit-modal-close-button {
+       background-color: #dc3545; 
+       color: #fff;
+       border: none;
+       margin-left: 80%;
+       margin-top: -32%;
+     }
+         
+     .edit-modal-close-button:hover {
+       background-color: #c82333; 
+     }
 
 
 

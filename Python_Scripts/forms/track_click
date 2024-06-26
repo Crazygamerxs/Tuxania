@@ -1,0 +1,14 @@
+def doPost(request, session):
+    params = request.get('params', {})  # Get the query parameters
+
+    formId = params.get('id')
+    formUrl = params.get('url')
+    
+
+    logger = system.util.getLogger('request')
+    #logger.info("Form Id: %s,  URL: %s" % (formId, formUrl))
+
+    db_params = {'id': formId}  
+    system.db.runNamedQuery('increment_click_count', db_params)  # Increment the click count for the form
+
+    return {'json': {'status': 'success'}}

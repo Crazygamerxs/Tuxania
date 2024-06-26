@@ -1,0 +1,13 @@
+def doDelete(request, session):
+	params = request.getQuery()
+	file_id = params.get('id')
+	
+	file_data = system.db.runNamedQuery('get_file_by_id', {'id': file_id})
+	if file_data.getRowCount() > 0:
+	    file_path = file_data.getValueAt(0, 'url')
+	    if os.path.exists(file_path):
+	        os.remove(file_path)
+	
+	system.db.runNamedQuery('delete_file', {'id': file_id})
+	
+	return {'json': {'status': 'success'}}

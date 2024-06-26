@@ -1,0 +1,15 @@
+def doGet(request, session):
+    # Query to retrieve form data and click counts from the database
+    data = system.db.runNamedQuery('get_forms_with_click_count')
+    
+    # Convert the dataset to a list of dictionaries
+    rows = []
+    headers = data.getColumnNames()
+    for row in range(data.getRowCount()):
+        row_dict = {headers[i]: data.getValueAt(row, i) for i in range(len(headers))}
+        rows.append(row_dict)
+    
+    
+    
+    # Return the data as JSON
+    return {'json': rows}

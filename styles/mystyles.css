@@ -44,7 +44,7 @@
 }
 
 /* Base button style */
-.forms-section {
+/*.forms-section {
     width: 100%;
     max-width: 500px;
     background-color: #f8f8f8;
@@ -107,6 +107,60 @@
 .responsive-button:hover, .responsive-button-dark:hover {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
 }
+*/
+.forms-section {
+    width: 100%;
+    max-width: 800px; /* Adjust max-width as per your design */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    gap: 20px; /* Adjust the gap between items */
+}
+
+.grid-item {
+    padding: 7px;
+    background-color: #ffffffdc;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; /* Transition for box-shadow */
+}
+
+.grid-item:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+}
+
+.grid-item a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.grid-item a img {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 5px; /* Adjust spacing between image and text */
+    display: block; /* Ensure proper display */
+    margin: 0 auto; /* Center align image */
+}
+
+.grid-item a span {
+    display: block;
+    padding: 5px 0;
+}
+
+.grid-item a:hover {
+    background-color: #fffff; /* Hover effect for entire button */
+}
+
+
 
 /*----------------------------------*\
     #TRASH ICON
@@ -610,9 +664,15 @@ tbody tr td:first-child {
     color: white;
 }
 
-.footer-left, .footer-right {
+ .footer-right {
     flex: 1;
     margin: 20px;
+    margin-right: 1%;
+}
+.footer-left{
+    flex: 1;
+    margin: 20px;
+    margin-left: 20%;
 }
 
 .footer-img {
@@ -658,7 +718,7 @@ tbody tr td:first-child {
     border-radius: 5px;
     border: none;
     background-color: #ffffff;
-    color: white;
+    color: black;
 }
 
 .footer-right select {
@@ -753,7 +813,7 @@ tbody tr td:first-child {
     max-width: 500px;
     border-radius: 10px;
     position: relative;
-    height: 30%;
+    height: 40%;
 }
 
 .modal-content h2 {
@@ -815,13 +875,75 @@ tbody tr td:first-child {
     background-color: #640404;
 }
 
+/*--------------------------------*\
+    #FILE UPLOAD
+\*--------------------------------*/
+/* General styling for the file upload section */
+.file-upload-section {
+    margin: 20px;
+}
+
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.file-block {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.file-block button {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Styling for the file upload modal */
+.file-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.file-modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
 
 /* Media queries to handle layout adjustments */
-@media (min-width: 1920px) {
+@media (max-width: 1920px) {
     .job {
         margin-top: -370px;
         margin-left: 22%;
@@ -835,21 +957,46 @@ tbody tr td:first-child {
         margin-left: 650px;
         margin-top: 20px;
     }
-    
-s
+    .events-sidebar{
+       margin-left: -10%;
+       }
+     .footer-left{
+                  flex: 1;
+                  margin: 20px;
+                  margin-left: 2%;
+              }
+
 }
 
+@media (min-width: 1600){
+    .footer-left{
+            flex: 1;
+            margin: 20px;
+            margin-left: -30%;
+        }
 
-
-
+}
 @media (max-width: 1400px){
+     .footer-left{
+       flex: 1;
+       margin: 20px;
+       margin-left: 0%;
+   }
+
+    }
+
+
+
+@media (min-width: 1400px){
     .events-sidebar{
-    margin-left:10%;
+    margin-right: 9%;
+    }
+   
     }
 
 @media (max-width: 1200px){
     .events-sidebar{
-    margin-left:-10%;
+    margin-left:-8%;
     }
 
 }
@@ -877,7 +1024,7 @@ s
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .single-job-item {
         flex: 0 0 100%;
         max-width: 100%;
@@ -891,5 +1038,9 @@ s
         margin-left: 650px;
         margin-top: 20px;
     }
+    .events-sidebar{
+        margin-left:-10%;
+        }
+
 }
-}
+

@@ -1,6 +1,6 @@
 def doGet(request, session):
     # Query to retrieve data from the database
-    data = system.db.runNamedQuery('get_event')
+    data = system.db.runNamedQuery('events/get_event')
     
     # Convert the dataset to a list of dictionaries
     rows = []

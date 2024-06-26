@@ -6,29 +6,31 @@ const noResultsMessage = document.getElementById("no-results-message"); // Assum
 
 let links = [];
 
-searchInput.addEventListener("input", e => {
-    const value = e.target.value.trim().toLowerCase();
+function filterLinks() {
+    const value = searchInput.value.trim().toLowerCase();
     dropdownContent.innerHTML = "";
-    let foundResults = false;
-    
+    let foundResults = 0; // Initialize counter for found results
+
     links.forEach(link => {
-        if (link.name.toLowerCase().includes(value)) {
+        if (link.name.toLowerCase().includes(value) && foundResults < 10) { // Check if result matches search and limit to 10
             const a = document.createElement("a");
             a.href = link.url;
             a.textContent = link.name;
             dropdownContent.appendChild(a);
-            foundResults = true;
+            foundResults++; // Increment found results counter
         }
     });
 
-    if (foundResults) {
+    if (foundResults > 0) {
         dropdownContent.classList.add("show");
-        noResultsMessage.style.display = "none";
+//        noResultsMessage.style.display = "none";
     } else {
-        dropdownContent.classList.remove("show");
-        noResultsMessage.style.display = "block"; // Display message if no results found
+//        dropdownContent.classList.remove("show");
+//        noResultsMessage.style.display = "block"; // Display message if no results found
     }
-});
+}
+
+searchInput.addEventListener("input", filterLinks);
 
 fetch("../javascript/links.json")
     .then(res => res.json())

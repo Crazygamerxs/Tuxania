@@ -1,8 +1,7 @@
 def doGet(request, session):
 	try:
-		
 	    # Query to retrieve banner data from the database
-	    data = system.db.runNamedQuery('get_banner')
+	    data = system.db.runNamedQuery('banner/get_banner')
 	    
 	    # Convert the dataset to a list of dictionaries
 	    rows = []

@@ -1,0 +1,28 @@
+def doPost(request, session):
+    params = request["data"]  # Get the multipart form data
+    
+    file_name = params.get('file-name')
+    uploader_name = params.get('uploader-name')
+    file = params.get('file')
+    
+    # Determine the upload directory within your Ignition project
+    upload_directory = '/path/to/upload/directory/'  
+    file_path = upload_directory + file.filename
+    
+    # Save the file to the specified upload directory
+    system.file.writeFile(file_path, file.file, False)  # Write uploaded file
+    
+    date_uploaded = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    # Prepare database parameters for insertion
+    db_params = {
+        'name': file_name,
+        'url': file_path,
+        'uploader_name': uploader_name,
+        'date_uploaded': date_uploaded
+    }
+    
+    # Insert file information into the database using a named query
+    system.db.runNamedQuery('insert_file', db_params)
+    
+    return {'json': {'status': 'success'}}

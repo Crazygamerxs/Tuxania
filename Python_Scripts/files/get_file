@@ -1,0 +1,10 @@
+def doGet(request, session):
+	data = system.db.runNamedQuery('get_files')
+	
+	files = []
+	headers = data.getColumnNames()
+	for row in range(data.getRowCount()):
+		row_dict = {headers[i]: data.getValueAt(row, i) for i in range(len(headers))}
+		files.append(row_dict)
+	
+	return {'json': files}
